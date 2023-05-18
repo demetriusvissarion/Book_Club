@@ -24,7 +24,7 @@
 
 <body style="font-family: Open Sans, sans-serif">
 <section class="px-6 py-8">
-    <nav class="md:flex md:justify-between md:items-center">
+    <nav class="md:flex md:justify-between md:items-center bg-blue-300 pr-20">
         <div>
             <a href="/">
                 <img src="/images/logo.png" alt="Book Club Logo" width="165" height="16">
@@ -39,9 +39,9 @@
                     </x-slot>
 
                     @admin
-                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard
+                    <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
                     </x-dropdown-item>
-                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Book
+                    <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
                     </x-dropdown-item>
                     @endadmin
 
@@ -57,14 +57,14 @@
                 </x-dropdown>
 
             @else
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                <a href="/register" class="text-xl font-bold uppercase">Register</a>
+                <a href="/login" class="ml-6 text-xl font-bold uppercase">Log In</a>
             @endauth
 
-            <a href="#newsletter"
-               class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                Subscribe for Updates
-            </a>
+{{--            <a href="#newsletter"--}}
+{{--               class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">--}}
+{{--                Subscribe for Updates--}}
+{{--            </a>--}}
         </div>
     </nav>
 

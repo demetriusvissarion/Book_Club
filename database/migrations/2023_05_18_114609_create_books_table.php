@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
@@ -19,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('thumbnail')->nullable();
             $table->text('excerpt');
+//            $table->text('body');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });

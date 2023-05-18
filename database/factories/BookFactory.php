@@ -7,9 +7,6 @@ use App\Models\Book;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
- */
 class BookFactory extends Factory
 {
     protected $model = Book::class;
@@ -24,7 +21,7 @@ class BookFactory extends Factory
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
-            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
+//            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'thumbnail' => 'thumbnails/illustration-' . $image . '.jpeg',
         ];
     }

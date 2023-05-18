@@ -1,11 +1,18 @@
-<header class="max-w-xl mt-20 text-center">
-    <h1 class="text-4xl">
-        Latest Books
-    </h1>
-    <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
-        <!--  Category -->
-        <div class="relative lg:inline-flex bg-gray-100 rounded-xl">
-            <x-category-dropdown />
+<header class="max-w-xs mt-20 text-left">
+    <nav class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4 max-w-2xl flex justify-items-end">
+        <!--  Author & Category -->
+        <div class="flex flex-col">
+            <h1 class="text-4xl flex justify-end mb-5">
+                Filter Books by:
+            </h1>
+
+            <div class="bg-gray-100 rounded-xl mb-5">
+                <x-author-dropdown/>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl mb-5">
+                <x-category-dropdown/>
+            </div>
         </div>
         <!-- Other Filters -->
         {{--        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">--}}
@@ -40,5 +47,5 @@
 {{--                >--}}
 {{--            </form>--}}
 {{--        </div>--}}
-    </div>
+    </nav>
 </header>
