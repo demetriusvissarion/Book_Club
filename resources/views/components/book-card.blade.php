@@ -9,7 +9,7 @@
         <div class="mt-6 flex flex-col justify-between flex-1">
             <header>
                 <div class="space-x-2">
-                    <x-category-button :category="$book->category"/>
+                    <x-filter-button :category="$book->category"/>
                 </div>
                 <div class="mt-4">
                     <h1 class="text-3xl clamp one-line">

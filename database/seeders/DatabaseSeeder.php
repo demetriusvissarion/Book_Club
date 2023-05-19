@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Book;
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +21,21 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $user = User::factory()->create([
+            'id' => 0,
+            'name' => 'Demetrius Vissarion',
+            'username' => 'DemetriusVissarion',
+            'email' => 'demetrius.vissarion@gmail.com',
+            'password' => 'password',
+        ]);
+
+        Book::factory(5)->create([
+            'user_id' => $user->id
+        ]);
+
+        Comment::factory(5)->create([
+            'user_id' => $user->id
+        ]);
     }
 }
