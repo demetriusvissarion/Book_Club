@@ -9,7 +9,7 @@
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
-                    <x-category-button :category="$book->category"/>
+                    <x-filter-button :category="$book->category"/>
                 </div>
                 <div class="mt-4">
                     <h1 class="text-3xl">
@@ -27,7 +27,7 @@
             </div>
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="/images/avatar.svg" alt="avatar">
                     <div class="ml-3">
                         <h5 class="font-bold">
                             <a href="/?author={{ $book->author->username }}">{{ $book->author->name }}</a>

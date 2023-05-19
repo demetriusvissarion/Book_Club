@@ -11,13 +11,18 @@
 
             <ul>
                 <li>
-                    <a href="/admin/books"
-                       class="{{ request()->is('admin/books') ? 'text-blue-500' : '' }}">All Books</a>
+                    <a href="/admin/uploads"
+                       class="{{ request()->is('admin/uploads') ? 'text-blue-500' : '' }}">Book Upload Validation</a>
                 </li>
 
                 <li>
-                    <a href="/admin/books/create"
-                       class="{{ request()->is('admin/books/create') ? 'text-blue-500' : '' }}">New Book</a>
+                    <a href="/admin/categories"
+                       class="{{ request()->is('admin/categories') ? 'text-blue-500' : '' }}">Book Categories</a>
+                </li>
+
+                <li>
+                    <a href="/admin/users"
+                       class="{{ request()->is('admin/users') ? 'text-blue-500' : '' }}">Users Management</a>
                 </li>
             </ul>
         </aside>

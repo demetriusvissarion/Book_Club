@@ -1,13 +1,13 @@
-@props(['posts'])
+@props(['books'])
 
-<x-post-featured-card :post="$posts[0]" />
+<x-book-featured-card :book="$books[0]" />
 
-@if ($posts->count() > 1) {{-- prevent rendering of empty grid --}}
+@if ($books->count() > 1) {{-- prevent rendering of empty grid --}}
 <div class="lg:grid lg:grid-cols-6">
-    @foreach ($posts->skip(1) as $post)
-        {{-- Set diplay to 2 cols for first 2 posts and to 3 cols for all posts after: --}}
-        <x-post-card
-            :post="$post"
+    @foreach ($books->skip(1) as $book)
+        {{-- Set diplay to 2 cols for first 2 books and to 3 cols for all books after: --}}
+        <x-book-card
+            :book="$book"
             class="{{ $loop->iteration < 3 ? 'col-span-3' : 'col-span-2' }}"/>
     @endforeach
 </div>

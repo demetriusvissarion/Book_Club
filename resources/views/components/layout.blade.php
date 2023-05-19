@@ -39,10 +39,10 @@
                     </x-slot>
 
                     @admin
-                    <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
-                    </x-dropdown-item>
-                    <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
-                    </x-dropdown-item>
+                        <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
+                        </x-dropdown-item>
+                        <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
+                        </x-dropdown-item>
                     @endadmin
 
                     <x-dropdown-item
