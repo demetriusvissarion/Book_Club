@@ -30,10 +30,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'password',
         ]);
 
-        Book::factory(5)->create([
-            'user_id' => $user->id
-        ]);
-
         Comment::factory(5)->create([
             'user_id' => $user->id
         ]);
