@@ -63,9 +63,7 @@ class AdminBookController extends Controller
             'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
             'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
             'excerpt' => 'required',
-            'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')],
-            'published_at' => 'required'
         ]);
     }
 }

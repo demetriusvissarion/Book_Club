@@ -11,7 +11,7 @@
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
-                        <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                        <img src="/images/demetrius-avatar.jpg" alt="Demetrius avatar" class="object-scale-down h-10 w-10 rounded-full">
                         <div class="ml-3 text-left">
                             <h5 class="font-bold">
                                 <a href="/?author={{ $book->author->username }}">{{ $book->author->name }}</a>
@@ -38,7 +38,7 @@
                         </a>
 
                         <div class="space-x-2">
-                            <x-filter-button :category="$book->category"/>
+                            <x-category-button :category="$book->category"/>
                         </div>
                     </div>
 
