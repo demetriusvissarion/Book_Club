@@ -11,7 +11,6 @@ class BookController extends Controller
     {
         //        dd('test');
         //        dd(Gate::allows('admin'));
-        //        return view('books.index', ['books' => Book::latest()->paginate(18)->withQueryString()]); // replace with below later
 
         return view('books.index', [
             'books' => Book::latest()->filter(
