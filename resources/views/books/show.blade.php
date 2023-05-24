@@ -43,10 +43,15 @@
                     </div>
 
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
-                        {{ $book->title }}
+                        {{ 'Title: ' . $book->title }}
                     </h1>
 
-                    <div class="space-y-4 lg:text-lg leading-loose">{!! $book->body !!}</div>
+                    <strong>Description:</strong>
+                    <div class="text-sm mt-4 space-y-4">
+                        {!! $book->excerpt !!}
+                    </div>
+
+{{--                    <div class="space-y-4 lg:text-lg leading-loose">{!! $book->body !!}</div>--}}
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
