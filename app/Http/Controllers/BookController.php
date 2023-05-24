@@ -7,6 +7,11 @@ use Illuminate\Contracts\View\View;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        // every function under this controller must use the auth middleware except for the the index function
+        $this->middleware('auth')->except('index');
+    }
     public function index(): View
     {
         //        dd('test');
