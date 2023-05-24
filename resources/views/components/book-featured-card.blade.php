@@ -9,12 +9,13 @@
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
+                    Category:
                     <x-category-button :category="$book->category"/>
                 </div>
                 <div class="mt-4">
                     <h1 class="text-3xl">
                         <a href="/books/{{ $book->slug }}">
-                            {{ $book->title }}
+                            {{ 'Title: ' . $book->title }}
                         </a>
                     </h1>
                     <span class="mt-2 block text-gray-400 text-xs">

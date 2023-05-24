@@ -12,7 +12,7 @@
                                         <div class="flex items-center">
                                             <div class="text-sm font-medium text-gray-900">
                                                 <a href="/books/{{ $book->slug }}">
-                                                    {{ $book->title }}
+                                                    {{ 'Book Title: ' . $book->title }}
                                                 </a>
                                             </div>
                                         </div>
