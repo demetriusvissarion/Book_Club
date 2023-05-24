@@ -51,7 +51,13 @@
                         {!! $book->excerpt !!}
                     </div>
 
-{{--                    <div class="space-y-4 lg:text-lg leading-loose">{!! $book->body !!}</div>--}}
+                    {{-- TODO: change later to an anchor tag redirecting to a download route --}}
+                    <button type="submit"
+                            class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4"
+                    >Download</button>
+
+{{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a>--}}
+
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
