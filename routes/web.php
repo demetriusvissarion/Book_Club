@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class, 'index'])->name('home');
 
-// The 'guestRedirect' middleware is applied to this route, which redirects guests to the login page if they try to access it
+// The 'guestRedirect' middleware is applied to this route, which redirects guests to the login page if they try to access the Book Page
 Route::get('books/{book:slug}', [BookController::class, 'show'])
     ->middleware('guestRedirect')
     ->name('books.show');
