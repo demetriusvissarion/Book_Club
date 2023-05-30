@@ -35,16 +35,25 @@
                 @auth
                     <x-dropdown class="flex-row">
                         <x-slot name="trigger">
-                            <x-form.button class="text-xs font-bold uppercase"> {{ auth()->user()->name }}
+                            <x-form.button class="text-xs font-bold uppercase">
+                                {{ auth()->user()->name }}
+                                {{-- TODO: add "(admin)" after the name if the user is admin --}}
+                                {{-- @php
+                                $logged_user_name = auth()->user()->name;
+                                if($logged_user_name == "Demetrius Vissarion") {
+                                    echo $logged_user_name . " (admin)"
+                                    } else {echo $logged_user_name;}
+                            @endphp --}}
                             </x-form.button>
                         </x-slot>
 
                         @admin
                             <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
                             </x-dropdown-item>
-                            <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
-                            </x-dropdown-item>
                         @endadmin
+
+                        <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
+                        </x-dropdown-item>
 
                         <x-dropdown-item href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()">Log Out

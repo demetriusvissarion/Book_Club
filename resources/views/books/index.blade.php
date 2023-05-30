@@ -1,7 +1,7 @@
 <x-layout>
-    @include ('books._header')
-
-    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+    {{-- "include" was here --}}
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-10 space-y-6">
+        @include ('books._header')
         @if ($books->count())
             <x-books-grid :books="$books" />
 
