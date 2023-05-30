@@ -9,7 +9,8 @@
         {{-- Set diplay to 2 cols for first 2 books and to 3 cols for all books after: --}}
         <x-book-card
             :book="$book"
-            class="{{ $loop->iteration < 3 ? 'col-span-3' : 'col-span-2' }}"/>
+{{--            class="{{ $loop->iteration < 3 ? 'col-span-3' : 'col-span-2' }}"/>--}}
+            class="{{ $loop->iteration < 3 ? 'col-span-3' : 'col-span-3' }}"/>
 {{--            class="{{  'col-span-2' }}"/>--}}
     @endforeach
 </div>
