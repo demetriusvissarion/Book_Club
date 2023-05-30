@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -12,15 +13,20 @@ class BookController extends Controller
         // every function under this controller must use the auth middleware except for the the index function
         $this->middleware('auth')->except('index');
     }
-    public function index(): View
+    public function index(Request $request): View
     {
-        //        dd('test');
-        //        dd(Gate::allows('admin'));
+        $query = Book::query();
+
+        if ($request->filled('user')) {
+            $query->where('user_id', $request->input('user'));
+        }
+
+        $books = $query->latest()->filter(
+            $request->only('search', 'category')
+        )->paginate(18)->withQueryString();
 
         return view('books.index', [
-            'books' => Book::latest()->filter(
-                request(['search', 'category', 'author'])
-            )->paginate(18)->withQueryString()
+            'books' => $books,
         ]);
     }
 

@@ -12,8 +12,8 @@
     </x-dropdown-item>
 
     @foreach ($users as $user)
-        <x-dropdown-item href="/?user={{ $user->username }}&{{ http_build_query(request()->except('user', 'page')) }}"
-            :active='request()->fullUrlIs("*?user/{$user->username}")'>
+        <x-dropdown-item href="/?user={{ $user->id }}&{{ http_build_query(request()->except('user', 'page')) }}"
+            :active='request()->fullUrlIs("*?user={$user->id}*")'>
             {{ ucwords($user->name) }}
         </x-dropdown-item>
     @endforeach
