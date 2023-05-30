@@ -7,11 +7,14 @@
         </button>
     </x-slot>
 
-    <x-dropdown-item href="/?{{ http_build_query(request()->except('user', 'page')) }}" :active="request()->routeIs('home')">All
+    <x-dropdown-item href="/?{{ http_build_query(request()->except('user', 'page')) }}" :active="request()->routeIs('home') && is_null(request()->getQueryString())">
+        All
     </x-dropdown-item>
 
     @foreach ($users as $user)
         <x-dropdown-item href="/?user={{ $user->username }}&{{ http_build_query(request()->except('user', 'page')) }}"
-            :active='request()->is("users/{$user->username}")'>{{ ucwords($user->name) }}</x-dropdown-item>
+            :active='request()->fullUrlIs("*?user/{$user->username}")'>
+            {{ ucwords($user->name) }}
+        </x-dropdown-item>
     @endforeach
 </x-dropdown>

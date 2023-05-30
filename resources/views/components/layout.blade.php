@@ -24,7 +24,7 @@
 
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
-        <nav class="md:flex md:justify-between md:items-center bg-blue-300 pr-20">
+        <nav class="md:flex md:justify-between md:items-center bg-blue-300 pr-20 sticky top-0">
             <div>
                 <a href="/">
                     <img src="/images/logo.png" alt="Book Club Logo" width="165" height="16">
