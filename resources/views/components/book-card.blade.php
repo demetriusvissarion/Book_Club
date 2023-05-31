@@ -10,7 +10,7 @@
             <header>
                 <div class="space-x-2">
                     Category:
-                    <x-category-button :category="$book->category"/>
+                    <x-category-button :category="$book->category" />
                 </div>
                 <div class="mt-4">
                     <h1 class="text-3xl clamp one-line">
@@ -34,18 +34,19 @@
                             <a href="/?author={{ $book->author->username }}">{{ $book->author->name }}</a>
                         </h5>
                     </div>
-                    <img src="/images/demetrius-avatar.jpg" alt="Demetrius avatar" class="object-scale-down h-10 w-10 rounded-full">
+                    <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt=""
+                        class="rounded-full h-10 w-10 object-cover">
                 </div>
 
                 <div>
                     @if (Auth::id())
                         <a href="/books/{{ $book->slug }}"
-                           class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
-                        >Read More</a>
+                            class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read
+                            More</a>
                     @else
                         <a href="/books/{{ $book->slug }}"
-                           class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
-                        >Read More (requires login)</a>
+                            class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read
+                            More (requires login)</a>
                     @endif
                 </div>
             </footer>

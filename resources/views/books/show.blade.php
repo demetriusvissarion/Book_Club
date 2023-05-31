@@ -11,7 +11,8 @@
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
-                        <img src="/images/demetrius-avatar.jpg" alt="Demetrius avatar" class="object-scale-down h-10 w-10 rounded-full">
+                        <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt=""
+                            class="rounded-full h-10 w-10 object-cover">
                         <div class="ml-3 text-left">
                             <h5 class="font-bold">
                                 <a href="/?author={{ $book->author->username }}">{{ $book->author->name }}</a>
@@ -23,13 +24,13 @@
                 <div class="col-span-8">
                     <div class="hidden lg:flex justify-between mb-6">
                         <a href="/"
-                           class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
+                            class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
                             <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
                                 <g fill="none" fill-rule="evenodd">
                                     <path stroke="#000" stroke-opacity=".012" stroke-width=".5" d="M21 1v20.16H.84V1z">
                                     </path>
                                     <path class="fill-current"
-                                          d="M13.854 7.224l-3.847 3.856 3.847 3.856-1.184 1.184-5.04-5.04 5.04-5.04z">
+                                        d="M13.854 7.224l-3.847 3.856 3.847 3.856-1.184 1.184-5.04-5.04 5.04-5.04z">
                                     </path>
                                 </g>
                             </svg>
@@ -38,7 +39,7 @@
                         </a>
 
                         <div class="space-x-2">
-                            <x-category-button :category="$book->category"/>
+                            <x-category-button :category="$book->category" />
                         </div>
                     </div>
 
@@ -53,10 +54,9 @@
 
                     {{-- TODO: change later to an anchor tag redirecting to a download route --}}
                     <button type="submit"
-                            class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4"
-                    >Download</button>
+                        class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download</button>
 
-{{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a>--}}
+                    {{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a> --}}
 
                 </div>
 
@@ -64,7 +64,7 @@
                     @include ('books._add-comment-form')
 
                     @foreach ($book->comments as $comment)
-                        <x-book-comment :comment="$comment"/>
+                        <x-book-comment :comment="$comment" />
                     @endforeach
                 </section>
             </article>

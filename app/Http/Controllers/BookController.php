@@ -23,7 +23,7 @@ class BookController extends Controller
 
         $books = $query->latest()->filter(
             $request->only('search', 'category')
-        )->paginate(18)->withQueryString();
+        )->paginate(3)->withQueryString();
 
         return view('books.index', [
             'books' => $books,

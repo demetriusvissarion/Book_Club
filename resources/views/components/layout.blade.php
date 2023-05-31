@@ -27,7 +27,7 @@
         <nav class="md:flex md:justify-between md:items-center bg-blue-300 pr-20 sticky top-0">
             <div>
                 <a href="/">
-                    <img src="/images/logo.png" alt="Book Club Logo" width="165" height="16">
+                    <img src="/images/logo.png" alt="Book Club Logo" class="w-28 h-full">
                 </a>
             </div>
 
