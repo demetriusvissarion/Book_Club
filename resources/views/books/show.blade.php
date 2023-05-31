@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="col-span-8">
-                    <div class="hidden lg:flex justify-between mb-6">
+                    <div class="hidden lg:flex justify-between mb-2">
                         <a href="/"
                             class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
                             <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
 
-                    <h1 class="font-bold text-3xl lg:text-4xl mb-10">
+                    <h1 class="font-bold text-3xl lg:text-4xl mb-2">
                         {{ 'Title: ' . $book->title }}
                     </h1>
 

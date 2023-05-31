@@ -10,7 +10,7 @@
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
                     Category:
-                    <x-category-button :category="$book->category"/>
+                    <x-category-button :category="$book->category" />
                 </div>
                 <div class="mt-4">
                     <h1 class="text-3xl">
@@ -34,18 +34,19 @@
                             <a href="/?author={{ $book->author->username }}">{{ $book->author->name }}</a>
                         </h5>
                     </div>
-                    <img src="/images/demetrius-avatar.jpg" alt="Demetrius avatar" class="object-scale-down h-10 w-10 rounded-full">
+                    <img src="/images/demetrius-avatar.jpg" alt="Demetrius avatar"
+                        class="object-scale-down h-10 w-10 rounded-full">
                 </div>
 
                 <div class="hidden lg:block">
                     @if (Auth::id())
                         <a href="/books/{{ $book->slug }}"
-                           class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
-                        >Read More</a>
+                            class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read
+                            More</a>
                     @else
                         <a href="/books/{{ $book->slug }}"
-                           class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
-                        >Read More (requires login)</a>
+                            class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8 overflow-y-auto">Read
+                            More (requires login test)</a>
                     @endif
                 </div>
             </footer>

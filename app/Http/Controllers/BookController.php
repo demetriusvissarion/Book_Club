@@ -32,6 +32,8 @@ class BookController extends Controller
 
     public function show(Book $book): View
     {
+        // ddd(auth()->id());
+
         return view('books.show', [
             'book' => $book
         ]);
