@@ -12,8 +12,8 @@
                     <x-form.input name="thumbnail" type="file" :value="old('thumbnail', $book->thumbnail)" />
                 </div>
 
-                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="" class="rounded-xl ml-6"
-                    width="50">
+                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="admin dashboard book thumbnail"
+                    class="rounded-xl ml-6" width="50">
             </div>
 
             <x-form.textarea name="excerpt" required>{{ old('excerpt', $book->excerpt) }}</x-form.textarea>
