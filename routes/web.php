@@ -17,7 +17,7 @@ Route::get('books/{book:slug}', [BookController::class, 'show'])
 
 Route::post('books/{book:slug}/comments', [BookCommentsController::class, 'store']);
 
-Route::post('newsletter', NewsletterController::class);
+// Route::post('newsletter', NewsletterController::class);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
