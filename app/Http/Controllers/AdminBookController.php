@@ -10,7 +10,7 @@ class AdminBookController extends Controller
     public function index()
     {
         return view('admin.books.index', [
-            'books' => Book::paginate(50)
+            'books' => Book::paginate(6)
         ]);
     }
 

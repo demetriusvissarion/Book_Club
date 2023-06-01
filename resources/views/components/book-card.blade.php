@@ -11,7 +11,7 @@
         </h1>
         <div class="flex flex-row mt-3">
             <div>
-                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="Book card thumbnail" class="rounded-xl w-28">
+                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="Book card thumbnail" class="rounded-xl w-24">
             </div>
 
             <header class="mt-2 ml-5">
