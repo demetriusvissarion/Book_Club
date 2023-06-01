@@ -40,7 +40,7 @@
         </div>
         <div class="mt-2 flex flex-col justify-between flex-1">
             <div class="text-sm mt-2 space-y-4">
-                Description:
+                <p class="font-bold">Description:</p>
                 {!! Illuminate\Support\Str::limit($book->excerpt, 90) !!}
             </div>
             <footer class="flex justify-between items-center mt-2">
