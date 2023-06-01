@@ -31,6 +31,19 @@
                 </a>
             </div>
 
+            <!-- Search -->
+            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+                <form method="GET" action="/">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+
+                    <input type="text" name="search" placeholder="Type text + hit Enter"
+                        class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm"
+                        value="{{ request('search') }}">
+                </form>
+            </div>
+
             <div class="mt-2 md:mt-0 flex items-center">
                 @auth
                     <x-dropdown class="flex-row">

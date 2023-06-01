@@ -38,14 +38,22 @@
                             Back to Books
                         </a>
 
-                        <div class="space-x-2">
+                        {{-- <div class="space-x-2">
                             <x-category-button :category="$book->category" />
-                        </div>
+                        </div> --}}
                     </div>
 
-                    <h1 class="font-bold text-3xl lg:text-4xl mb-2">
-                        {{ 'Title: ' . $book->title }}
-                    </h1>
+                    <div class="space-x-2 mb-2 flex flex-row align-middle">
+                        {{-- <strong>Title: </strong> --}}
+                        <h1 class="font-bold text-3xl lg:text-4xl mb-2 ml-0">
+                            {{ $book->title }}
+                        </h1>
+                    </div>
+
+                    <div class="space-x-2 mb-2">
+                        <strong>Category:</strong>
+                        <x-category-button :category="$book->category" />
+                    </div>
 
                     <strong>Description:</strong>
                     <div class="text-sm mt-4 space-y-4">
@@ -55,6 +63,8 @@
                     {{-- TODO: change later to an anchor tag redirecting to a download route --}}
                     <button type="submit"
                         class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download</button>
+                    <button type="submit"
+                        class="bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4">Edit</button>
 
                     {{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a> --}}
 
