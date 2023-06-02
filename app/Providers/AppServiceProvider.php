@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Book;
 use App\Models\User;
 // use App\Services\Newsletter;
 // use App\Services\MailchimpNewsletter;
@@ -49,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('users', function () {
             return request()->user()?->can('users'); // '?' makes it to run only if we have a user
+        });
+
+        Gate::define('update-book', function (User $user, Book $book) {
+            return $user->id === $book->user_id;
         });
     }
 }

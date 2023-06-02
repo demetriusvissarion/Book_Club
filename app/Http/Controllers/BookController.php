@@ -6,6 +6,7 @@ use App\Models\Book;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class BookController extends Controller
 {
@@ -65,6 +66,10 @@ class BookController extends Controller
     public function update(Book $book)
     {
         $attributes = $this->validateBook($book);
+
+        if (!Gate::allows('update-book', $book)) {
+            abort(403);
+        }
 
         if ($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');

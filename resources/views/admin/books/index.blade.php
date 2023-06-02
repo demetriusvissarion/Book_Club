@@ -5,11 +5,11 @@
                 <h4 class="font-semibold mb-4">Links</h4>
 
                 <ul>
-                    {{-- <li>
+                    <li>
                         <a href="/admin/uploads" class="{{ request()->is('admin/uploads') ? 'text-blue-500' : '' }}">Book
                             Upload
                             Validation</a>
-                    </li> --}}
+                    </li>
 
                     <li>
                         <a href="/admin/categories"
