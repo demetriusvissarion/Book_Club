@@ -81,14 +81,14 @@ class BookController extends Controller
 
         $book->update($attributes);
 
-        return back()->with('success', 'Book Updated!');
+        return redirect('/books')->with('success', 'Book Updated!');
     }
 
     public function destroy(Book $book)
     {
         $book->delete();
 
-        return back()->with('success', 'Book Deleted!');
+        return redirect('/books')->with('success', 'Book Deleted!');
     }
 
     protected function validateBook(?Book $book = null): array
