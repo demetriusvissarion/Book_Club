@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('excerpt');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
+            $table->binary('pdf')->nullable();
         });
     }
 

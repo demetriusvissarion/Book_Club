@@ -23,7 +23,8 @@ class AdminBookController extends Controller
     {
         Book::create(array_merge($this->validateBook(), [
             'user_id' => request()->user()->id,
-            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+            'thumbnail' => request()->file('thumbnail')->store('thumbnails'),
+            'pdf' => request()->file('pdf')->store('pdf'),
         ]));
 
         return redirect('/');
@@ -40,6 +41,10 @@ class AdminBookController extends Controller
 
         if ($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        }
+
+        if ($attributes['pdf'] ?? false) {
+            $attributes['pdf'] = request()->file('pdf')->store('pdf');
         }
 
         $book->update($attributes);
@@ -61,6 +66,7 @@ class AdminBookController extends Controller
         return request()->validate([
             'title' => 'required',
             'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
+            'pdf' => $book->exists ? ['file'] : ['required', 'file'],
             'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
             'excerpt' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')],

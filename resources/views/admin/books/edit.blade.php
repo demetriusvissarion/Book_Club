@@ -12,6 +12,10 @@
                     <x-form.input name="thumbnail" type="file" :value="old('thumbnail', $book->thumbnail)" />
                 </div>
 
+                <div class="flex-1">
+                    <x-form.input name="pdf" type="file" :value="old('pdf', $book->pdf)" />
+                </div>
+
                 <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="admin dashboard book thumbnail"
                     class="rounded-xl ml-6" width="50">
             </div>

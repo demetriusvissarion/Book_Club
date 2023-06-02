@@ -14,10 +14,9 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 Route::get('books/{book:slug}', [BookController::class, 'show'])
     ->middleware('guestRedirect')
     ->name('books.show');
+Route::post('books/create', [BookController::class, 'store']);
 
 Route::post('books/{book:slug}/comments', [BookCommentsController::class, 'store']);
-
-// Route::post('newsletter', NewsletterController::class);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
