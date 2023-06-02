@@ -6,8 +6,6 @@
     </h1>
 
     <div class="flex">
-
-
         <main class=" flex-1">
             <x-panel>
                 {{ $slot }}

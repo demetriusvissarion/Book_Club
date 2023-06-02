@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdminBookController;
-use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -10,13 +9,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class, 'index'])->name('home');
 
+// User Section
+Route::middleware('can:users')->group(function () {
+    Route::resource('books', BookController::class);
+});
+
 // The 'guestRedirect' middleware is applied to this route, which redirects guests to the login page if they try to access the Book Page
 Route::get('books/{book:slug}', [BookController::class, 'show'])
     ->middleware('guestRedirect')
     ->name('books.show');
-Route::middleware('can:user')->group(function () {
-    Route::resource('books', BookController::class)->except('show');
-});
 
 
 Route::post('books/{book:slug}/comments', [BookCommentsController::class, 'store']);

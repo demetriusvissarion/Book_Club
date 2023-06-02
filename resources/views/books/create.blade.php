@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting heading="Publish New Book">
-        <form method="POST" action="/books" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('books.store') }}" enctype="multipart/form-data">
             @csrf
 
             <x-form.input name="title" required />
