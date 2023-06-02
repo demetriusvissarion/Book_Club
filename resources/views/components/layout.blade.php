@@ -67,8 +67,10 @@
                             </x-dropdown-item>
                         @endadmin
 
-                        <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
-                        </x-dropdown-item>
+                        @users
+                            <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
+                            </x-dropdown-item>
+                        @endusers
 
                         <x-dropdown-item href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()">Log Out

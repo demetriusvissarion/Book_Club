@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting :heading="'Edit Book: ' . $book->title">
-        <form method="POST" action="/admin/books/{{ $book->id }}" enctype="multipart/form-data">
+        <form method="POST" action="/books/{{ $book->id }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -16,8 +16,8 @@
                     <x-form.input name="pdf" type="file" :value="old('pdf', $book->pdf)" />
                 </div>
 
-                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="admin dashboard book thumbnail"
-                    class="rounded-xl ml-6" width="50">
+                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="book thumbnail" class="rounded-xl ml-6"
+                    width="50">
             </div>
 
             <x-form.textarea name="excerpt" required>{{ old('excerpt', $book->excerpt) }}</x-form.textarea>

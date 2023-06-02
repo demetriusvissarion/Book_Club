@@ -14,17 +14,22 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 Route::get('books/{book:slug}', [BookController::class, 'show'])
     ->middleware('guestRedirect')
     ->name('books.show');
-Route::post('books/create', [BookController::class, 'store']);
+Route::middleware('can:user')->group(function () {
+    Route::resource('books', BookController::class)->except('show');
+});
+
 
 Route::post('books/{book:slug}/comments', [BookCommentsController::class, 'store']);
+
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
+
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
-
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
 
 // Admin Section
 Route::middleware('can:admin')->group(function () {
