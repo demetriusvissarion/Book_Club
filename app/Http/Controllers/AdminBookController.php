@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Validation\Rule;
 
 class AdminBookController extends Controller
 {
     public function index()
     {
-        return view('admin.books.index', [
+        return view('admin.index', [
             'books' => Book::latest()->simplePaginate(6)->withQueryString()
-            //  = $query->latest()->filter(
         ]);
     }
 
@@ -71,6 +72,20 @@ class AdminBookController extends Controller
             'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
             'excerpt' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')],
+        ]);
+    }
+
+    public function users()
+    {
+        return view('admin.users', [
+            'users' => User::latest()->simplePaginate(6)->withQueryString()
+        ]);
+    }
+
+    public function categories()
+    {
+        return view('admin.categories', [
+            'categories' => Category::latest()->simplePaginate(6)->withQueryString()
         ]);
     }
 }

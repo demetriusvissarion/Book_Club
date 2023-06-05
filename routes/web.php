@@ -38,3 +38,5 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/books', AdminBookController::class)->except('show');
 });
+Route::get('admin/users', [AdminBookController::class, 'users'])->name('users');
+Route::get('admin/categories', [AdminBookController::class, 'categories'])->name('categories');
