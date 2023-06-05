@@ -10,7 +10,8 @@ class AdminBookController extends Controller
     public function index()
     {
         return view('admin.books.index', [
-            'books' => Book::paginate(6)
+            'books' => Book::latest()->simplePaginate(6)->withQueryString()
+            //  = $query->latest()->filter(
         ]);
     }
 

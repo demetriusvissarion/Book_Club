@@ -7,6 +7,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Response;
+// use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -56,6 +58,18 @@ class BookController extends Controller
         ]));
 
         return redirect('/');
+    }
+
+    public function download()
+    {
+        //PDF file is stored under project/public/storage/pdf/TestPDF1.pdf
+        $file = public_path() . "/storage/pdf/TestPDF1.pdf";
+
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+
+        return Response::download($file, 'filename.pdf', $headers);
     }
 
     public function edit(Book $book)

@@ -6,20 +6,19 @@
 
                 <ul>
                     <li>
-                        <a href="/admin/uploads" class="{{ request()->is('admin/uploads') ? 'text-blue-500' : '' }}">Book
-                            Upload
-                            Validation</a>
-                    </li>
-
-                    <li>
-                        <a href="/admin/categories"
-                            class="{{ request()->is('admin/categories') ? 'text-blue-500' : '' }}">Book
-                            Categories</a>
-                    </li>
-
-                    <li>
-                        <a href="/admin/users" class="{{ request()->is('admin/users') ? 'text-blue-500' : '' }}">Users
+                        <a href="/admin/books" class="{{ request()->is('admin/uploads') ? 'text-blue-500' : '' }}">Book
                             Management</a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/books/categories"
+                            class="{{ request()->is('admin/categories') ? 'text-blue-500' : '' }}">Book Categories
+                            Management</a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/books/users"
+                            class="{{ request()->is('admin/users') ? 'text-blue-500' : '' }}">Users Management</a>
                     </li>
                 </ul>
             </aside>

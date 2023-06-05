@@ -61,13 +61,15 @@
                     </div>
 
                     {{-- TODO: change later to an anchor tag redirecting to a download route --}}
-                    <button type="submit"
-                        class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download</button>
+                    <div class="mt-4">
+                        <a href="{{ $book->id }}/download"
+                            class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
+                            PDF</a>
 
-                    <a href="{{ $book->id }}/edit"
-                        class="bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
-                        style="font-size: 10px">Edit</a>
-
+                        <a href="{{ $book->id }}/edit"
+                            class="bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
+                            style="font-size: 10px">Edit</a>
+                    </div>
                     {{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a> --}}
 
                 </div>

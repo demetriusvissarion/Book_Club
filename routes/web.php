@@ -13,6 +13,7 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 Route::middleware('can:users')->group(function () {
     Route::resource('books', BookController::class);
 });
+Route::get('books/{id}/download', [BookController::class, 'download']);
 
 // The 'guestRedirect' middleware is applied to this route, which redirects guests to the login page if they try to access the Book Page
 Route::get('books/{book:slug}', [BookController::class, 'show'])
