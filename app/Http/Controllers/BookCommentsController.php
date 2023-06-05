@@ -18,6 +18,6 @@ class BookCommentsController extends Controller
             'body' => request('body')
         ]);
 
-        return back();
+        return back()->with('success', 'Message posted!');
     }
 }
