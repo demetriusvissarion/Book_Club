@@ -11,7 +11,8 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 
 // User Section
 Route::middleware('can:users')->group(function () {
-    Route::resource('books', BookController::class);
+    Route::resource('books', BookController::class)->except('destroy');
+    Route::delete('books/{book}', [BookController::class, 'userDestroy'])->name('books.userDestroy');
 });
 Route::get('books/{id}/download', [BookController::class, 'download']);
 
