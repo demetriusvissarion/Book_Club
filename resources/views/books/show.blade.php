@@ -66,9 +66,29 @@
                             class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
                             PDF</a>
 
-                        <a href="{{ $book->id }}/edit"
+                        @if ($book->user_id === \Auth::user()->id)
+                            <div class="align-items-center">
+                                <a href="{{ $book->id }}/edit"
+                                    class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
+                                    style="font-size: 10px">{{ __('Edit') }}</a>
+                                <form method="post" action="{{ route('books.userDestroy', $book) }}"
+                                    style="display: inline-block">
+                                    @method('DELETE')
+                                    @csrf
+                                    {{-- @php
+                                        dd(route('books.userDestroy', $book));
+                                    @endphp --}}
+                                    <button
+                                        onclick="return confirm('{{ __('Are you sure you want to delete this article ?') }}')"
+                                        class="btn btn-danger bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-4"
+                                        style="font-size: 10px">{{ __('Delete') }}</button>
+                                </form>
+                            </div>
+                        @endif
+
+                        {{-- <a href="{{ $book->id }}/edit"
                             class="bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
-                            style="font-size: 10px">Edit</a>
+                            style="font-size: 10px">Edit</a> --}}
                     </div>
                     {{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a> --}}
 

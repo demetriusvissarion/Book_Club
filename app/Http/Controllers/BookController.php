@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
@@ -98,9 +99,13 @@ class BookController extends Controller
         return redirect('/books')->with('success', 'Book Updated!');
     }
 
-    public function destroy(Book $book)
+    public function userDestroy(Book $book)
     {
-        $book->delete();
+        if ($book->user_id === Auth::user()->id)
+            $book->delete();
+        else {
+            return response()->json(['status_message' => 'Unathorised'], 401);
+        }
 
         return redirect('/books')->with('success', 'Book Deleted!');
     }

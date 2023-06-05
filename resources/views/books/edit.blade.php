@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting :heading="'Edit Book: ' . $book->title">
-        <form method="POST" action="/books/{{ $book->id }}" enctype="multipart/form-data">
+        <form method="POST" action="books/{{ $book->id }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 

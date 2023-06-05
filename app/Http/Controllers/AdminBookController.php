@@ -57,7 +57,7 @@ class AdminBookController extends Controller
     {
         $book->delete();
 
-        return back()->with('success', 'Book Deleted!');
+        return redirect('/admin/books')->with('success', 'Book Deleted!');
     }
 
     protected function validateBook(?Book $book = null): array
