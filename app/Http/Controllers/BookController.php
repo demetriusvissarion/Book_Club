@@ -82,6 +82,7 @@ class BookController extends Controller
     {
         $attributes = $this->validateBook($book);
 
+        // checks if user is the author
         if (!Gate::allows('update-book', $book)) {
             abort(403);
         }

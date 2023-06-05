@@ -68,9 +68,9 @@
 
                         @if ($book->user_id === \Auth::user()->id)
                             <div class="align-items-center">
-                                <a href="{{ $book->id }}/edit"
+                                <a href="/books/{{ $book->id }}/edit"
                                     class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
-                                    style="font-size: 10px">{{ __('Edit') }}</a>
+                                    style="font-size: 10px">Edit</a>
                                 <form method="post" action="{{ route('books.userDestroy', $book) }}"
                                     style="display: inline-block">
                                     @method('DELETE')
