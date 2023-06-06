@@ -33,9 +33,10 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="text-sm font-medium text-gray-900">
+                                                <div class="flex items-center text-sm font-medium text-gray-900">
+                                                    <p class="mr-5">Book title:</p>
                                                     <a href="/books/{{ $book->slug }}">
-                                                        {{ 'Book Title: ' . $book->title }}
+                                                        {{ $book->title }}
                                                     </a>
                                                 </div>
                                             </div>
@@ -62,5 +63,28 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-4 flex justify-center">
+            <nav role="navigation" aria-label="Pagination Navigation">
+                <ul class="pagination">
+                    @foreach ($books->onEachSide(1)->links()->elements as $element)
+                        @foreach ($element as $page => $url)
+                            <li class="mr-1" style="display: inline-block;">
+                                @if ($page === $books->currentPage())
+                                    <span
+                                        class="bg-blue-500 text-white px-4 py-2 rounded-full">{{ $page }}</span>
+                                @else
+                                    <a href="{{ $url }}"
+                                        class="text-blue-500 hover:text-blue-600 px-4 py-2 rounded-full">{{ $page }}</a>
+                                @endif
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            </nav>
+        </div>
+
     </x-setting>
+
+
 </x-layout>

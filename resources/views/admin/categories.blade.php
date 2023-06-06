@@ -1,5 +1,5 @@
 <x-layout>
-    <x-setting heading="Manage Books">
+    <x-setting heading="Manage Books" class="mt-0">
         <div class="flex flex-row">
             <aside class="w-60 flex-shrink-0">
                 <h4 class="font-semibold mb-4">Links</h4>
@@ -52,7 +52,8 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="text-xs text-gray-400">Delete</button>
+                                                <button class="text-xs text-gray-400"
+                                                    onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

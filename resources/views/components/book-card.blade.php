@@ -15,7 +15,7 @@
             </div>
 
             <header class="mt-2 ml-5">
-                <div class="space-x-2">
+                <div class="space-x-2 mb-2">
                     Category:
                     <x-category-button :category="$book->category" />
                 </div>
