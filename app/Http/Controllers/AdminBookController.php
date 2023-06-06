@@ -82,6 +82,14 @@ class AdminBookController extends Controller
         ]);
     }
 
+    public function showUserUploadedBooksCount($userId)
+    {
+        $user = User::findOrFail($userId);
+        $uploadedBooksCount = $user->getUploadedBooksCount();
+
+        return $uploadedBooksCount;
+    }
+
     public function categories()
     {
         return view('admin.categories', [

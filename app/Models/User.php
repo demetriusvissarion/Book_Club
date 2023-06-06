@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function getUploadedBooksCount()
+    {
+        return $this->books()->count();
+    }
 }

@@ -45,6 +45,15 @@
                                             </div>
                                         </td>
 
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex items-center text-sm font-medium text-gray-900">
+                                                    <p class="mr-5">No. of Books Uploaded:</p>
+                                                    <p>{{ $user->getUploadedBooksCount() }}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="/admin/users/{{ $user->id }}/edit"
                                                 class="text-blue-500 hover:text-blue-600">Edit</a>
