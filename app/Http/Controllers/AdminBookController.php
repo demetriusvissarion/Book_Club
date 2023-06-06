@@ -85,7 +85,7 @@ class AdminBookController extends Controller
     public function categories()
     {
         return view('admin.categories', [
-            'categories' => Category::latest()->simplePaginate(6)->withQueryString()
+            'categories' => Category::latest()->paginate(6)
         ]);
     }
 }

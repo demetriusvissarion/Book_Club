@@ -52,7 +52,8 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="text-xs text-gray-400">Delete</button>
+                                                <button class="text-xs text-gray-400"
+                                                    onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -65,6 +66,15 @@
         </div>
 
         <div class="mt-4 flex justify-center">
+            Showing:
+            <div class="ml-2">
+                <span class="mr-2">{{ $books->firstItem() }}</span>
+                <span class="mr-2">to</span>
+                <span class="mr-2">{{ $books->lastItem() }}</span>
+                <span class="mr-2">of</span>
+                <span class="mr-2">{{ $books->total() }}</span>
+                <span class="mr-2">books</span>
+            </div>
             <nav role="navigation" aria-label="Pagination Navigation">
                 <ul class="pagination">
                     @foreach ($books->onEachSide(1)->links()->elements as $element)

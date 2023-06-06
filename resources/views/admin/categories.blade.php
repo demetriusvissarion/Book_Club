@@ -64,5 +64,35 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-4 flex justify-center">
+            Showing:
+            <div class="ml-2">
+                <span class="mr-2">{{ $categories->firstItem() }}</span>
+                <span class="mr-2">to</span>
+                <span class="mr-2">{{ $categories->lastItem() }}</span>
+                <span class="mr-2">of</span>
+                <span class="mr-2">{{ $categories->total() }}</span>
+                <span class="mr-2">categories</span>
+            </div>
+            <nav role="navigation" aria-label="Pagination Navigation">
+                <ul class="pagination">
+                    @foreach ($categories->onEachSide(1)->links()->elements as $element)
+                        @foreach ($element as $page => $url)
+                            <li class="mr-1" style="display: inline-block;">
+                                @if ($page === $categories->currentPage())
+                                    <span
+                                        class="bg-blue-500 text-white px-4 py-2 rounded-full">{{ $page }}</span>
+                                @else
+                                    <a href="{{ $url }}"
+                                        class="text-blue-500 hover:text-blue-600 px-4 py-2 rounded-full">{{ $page }}</a>
+                                @endif
+                            </li>
+                        @endforeach
+                    @endforeach
+                </ul>
+            </nav>
+        </div>
+
     </x-setting>
 </x-layout>
