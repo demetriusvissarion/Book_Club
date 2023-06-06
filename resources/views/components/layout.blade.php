@@ -98,18 +98,18 @@
         {{ $slot }}
 
         <footer id="newsletter"
-            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-2 px-2 mt-1">
+            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-1 px-1 mt-0">
             {{--        <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;"> --}}
             <h5 class="text-2xl">Stay in touch with the latest books</h5>
             {{-- <p class="text-sm mt-1">Promise to keep the inbox clean. No bugs.</p>  --}}
 
-            <div class="mt-2">
-                <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
+            {{-- <div class="mt-2"> --}}
+            {{-- <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full"> --}}
 
-                    <form method="POST" action="/newsletter" class="lg:flex text-sm">
-                        @csrf
+            {{-- <form method="POST" action="/newsletter" class="lg:flex text-sm"> --}}
+            {{-- @csrf --}}
 
-                        {{--
+            {{--
                         <div class="lg:py-3 lg:px-5 flex items-center">
                             <label for="email" class="hidden lg:inline-block">
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
@@ -130,9 +130,9 @@
                             Subscribe
                         </button>
                           --}}
-                    </form>
-                </div>
-            </div>
+            {{-- </form> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
         </footer>
     </section>
 
