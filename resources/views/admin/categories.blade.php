@@ -34,9 +34,10 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="text-sm font-medium text-gray-900">
+                                                <div class="flex items-center text-sm font-medium text-gray-900">
+                                                    <p class="mr-5">Category Name:</p>
                                                     <a href="/admin/categories">
-                                                        {{ 'Category Name: ' . $category->name }}
+                                                        {{ $category->name }}
                                                     </a>
                                                 </div>
                                             </div>
@@ -53,7 +54,7 @@
                                                 @method('DELETE')
 
                                                 <button class="text-xs text-gray-400"
-                                                    onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')">Delete</button>
+                                                    onclick="return confirm('{{ __('Are you sure you want to delete this category? It will be permanent.') }}')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

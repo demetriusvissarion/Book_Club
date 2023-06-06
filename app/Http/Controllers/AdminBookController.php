@@ -78,7 +78,7 @@ class AdminBookController extends Controller
     public function users()
     {
         return view('admin.users', [
-            'users' => User::latest()->simplePaginate(6)->withQueryString()
+            'users' => User::latest()->paginate(6)
         ]);
     }
 
