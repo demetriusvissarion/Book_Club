@@ -169,5 +169,7 @@
             </nav>
         </div>
 
+        <script src="{{ asset('js/flowbite.js') }}"></script>
+
     </x-setting>
 </x-layout>
