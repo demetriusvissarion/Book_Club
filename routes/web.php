@@ -29,6 +29,7 @@ Route::get('register', [RegisterController::class, 'create'])->middleware('guest
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('admin/users/{user}/edit', [RegisterController::class, 'edit'])->middleware('auth')->name('edit');
 Route::put('admin/users/{user}/update', [RegisterController::class, 'update'])->middleware('auth')->name('update');
+Route::delete('admin/users/{user}', [RegisterController::class, 'destroy'])->middleware('auth')->name('destroy');
 
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');

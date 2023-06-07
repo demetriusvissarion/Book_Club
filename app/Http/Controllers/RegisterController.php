@@ -47,4 +47,11 @@ class RegisterController extends Controller
 
         return redirect('/admin/users')->with('success', 'Your account has been updated.');
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect('/admin/users')->with('success', 'User Deleted!');
+    }
 }
