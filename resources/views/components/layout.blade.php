@@ -86,10 +86,11 @@
                     </x-dropdown>
                 @else
                     <a href="/register"
-                        class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Register</a>
-                    <a href="/login"
+                        class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Register
+                        / Login</a>
+                    {{-- <a href="/login"
                         class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Log
-                        In</a>
+                        In</a> --}}
                 @endauth
 
                 {{--            <a href="#newsletter" --}}
