@@ -54,10 +54,18 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            {{-- <a href="/admin/users/{{ $user->id }}/edit"
+                                            <a href="{{ route('edit', $user->id) }}"
                                                 class="text-blue-500 hover:text-blue-600"
-                                                class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Edit</a> --}}
-                                            <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+                                                class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Edit</a>
+
+                                            {{-- <form method="POST" action="{{ route('edit', $user->id) }}">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit" class="text-blue-500 hover:text-blue-600"
+                                                    class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Edit</button>
+                                            </form> --}}
+
+                                            {{-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
                                                 class="text-blue-500 hover:text-blue-600" type="button">
                                                 Edit
                                             </button>
@@ -119,7 +127,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -140,6 +148,7 @@
             </div>
         </div>
 
+        {{-- Pagination --}}
         <div class="mt-4 flex justify-center">
             Showing:
             <div class="ml-2">
@@ -169,7 +178,7 @@
             </nav>
         </div>
 
-        <script src="{{ asset('js/flowbite.js') }}"></script>
+        {{-- <script src="{{ asset('js/flowbite.js') }}"></script> --}}
 
     </x-setting>
 </x-layout>
