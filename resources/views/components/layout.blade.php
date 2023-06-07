@@ -61,13 +61,17 @@
                         </x-slot>
 
                         @admin
-                            <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
+                            <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Admin Dashboard
+                            </x-dropdown-item>
+                            <x-dropdown-item href="/admin/books/create" :active="request()->is('account')">Account
                             </x-dropdown-item>
                             <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
                             </x-dropdown-item>
                         @endadmin
 
                         @users
+                            <x-dropdown-item href="/admin/books/create" :active="request()->is('account')">Account
+                            </x-dropdown-item>
                             <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
                             </x-dropdown-item>
                         @endusers
@@ -98,7 +102,7 @@
         {{ $slot }}
 
         <footer id="newsletter"
-            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-1 px-1 mt-0">
+            class=" bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-1 px-1 mt-0">
             {{--        <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;"> --}}
             <h5 class="text-2xl">Stay in touch with the latest books</h5>
             {{-- <p class="text-sm mt-1">Promise to keep the inbox clean. No bugs.</p>  --}}

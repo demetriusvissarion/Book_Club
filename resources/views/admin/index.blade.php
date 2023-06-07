@@ -7,14 +7,13 @@
                 <ul>
                     <li>
                         <a href="/admin/books"
-                            class="{{ request()->is('admin/books') ? 'bg-blue-500 text-white' : '' }}">Book
+                            class="{{ request()->is('admin/books') ? 'bg-blue-500 text-white' : '' }}">Books
                             Management</a>
                     </li>
 
                     <li>
                         <a href="/admin/categories"
-                            class="{{ request()->is('admin/categories') ? 'bg-blue-500 text-white' : '' }}">Book
-                            Categories
+                            class="{{ request()->is('admin/categories') ? 'bg-blue-500 text-white' : '' }}">Categories
                             Management</a>
                     </li>
 
