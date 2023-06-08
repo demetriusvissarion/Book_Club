@@ -11,6 +11,16 @@ class Book extends Model
 
     protected $with = ['category', 'author'];
 
+    protected $fillable = [
+        'title',
+        'slug',
+        'category_id',
+        'excerpt',
+        'user_id',
+        'thumbnail',
+        'pdf',
+    ];
+
     public function scopeFilter($query, array $filters)
     {
         $query->when(

@@ -4,6 +4,18 @@
             @csrf
             @method('PATCH')
 
+            <x-form.field>
+                <x-form.label name="author" />
+
+                <select name="user_id" id="user_id" required>
+                    @foreach (\App\Models\User::all() as $user)
+                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                            {{ ucwords($user->name) }}</option>
+                    @endforeach
+                </select>
+                <x-form.error name="user_id" />
+            </x-form.field>
+
             <x-form.input name="title" :value="old('title', $book->title)" required />
             <x-form.input name="slug" :value="old('slug', $book->slug)" required />
 
@@ -33,7 +45,7 @@
                     @endforeach
                 </select>
 
-                <x-form.error name="category" />
+                <x-form.error name="category_id" />
             </x-form.field>
 
             <x-form.button>Update</x-form.button>
