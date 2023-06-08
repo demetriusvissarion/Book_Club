@@ -16,6 +16,16 @@
                         required />
                     <x-form.button>Save and Exit</x-form.button>
                 </form>
+
+                <form method="POST" action="{{ route('destroy', $user->id) }}">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit"
+                        class="bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-2"
+                        onclick="return confirm('{{ __('Are you sure you want to delete your account? It will be permanent.') }}')">
+                        Delete Account</button>
+                </form>
             </x-panel>
         </main>
     </section>
