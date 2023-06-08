@@ -8,9 +8,9 @@
                     @csrf
                     @method('PUT')
 
-                    <x-form.input name="name" required :value="auth()->user()->name" />
-                    <x-form.input name="username" required :value="auth()->user()->username" />
-                    <x-form.input name="email" type="email" required :value="auth()->user()->email" />
+                    <x-form.input name="name" required :value="$user->name" />
+                    <x-form.input name="username" required :value="$user->username" />
+                    <x-form.input name="email" type="email" required :value="$user->email" />
                     <x-form.input name="password" type="password" autocomplete="new-password" required />
                     <x-form.input name="confirm_password" type="password" autocomplete="confirm-new-password"
                         required />
