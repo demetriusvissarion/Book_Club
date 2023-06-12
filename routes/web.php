@@ -43,3 +43,8 @@ Route::middleware('can:admin')->group(function () {
 });
 Route::get('admin/users', [AdminController::class, 'users'])->name('users');
 Route::get('admin/categories', [AdminController::class, 'categories'])->name('categories');
+Route::get('admin/categories/create', [AdminController::class, 'createCategory'])->name('createCategory');
+Route::post('admin/categories/{category}/store', [AdminController::class, 'storeCategory'])->name('storeCategory');
+Route::get('admin/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('editCategory');
+Route::put('admin/categories/{category}/update', [AdminController::class, 'updateCategory'])->name('updateCategory');
+Route::delete('admin/categories/{category}/destroy', [AdminController::class, 'destroyCategory'])->name('destroyCategory');

@@ -71,4 +71,37 @@ class AdminController extends Controller
             'categories' => Category::latest()->paginate(6)
         ]);
     }
+
+    public function createCategory()
+    {
+        return view('admin.categories.create');
+    }
+
+    public function storeCategory()
+    {
+        Category::create(request());
+
+        return back()->with('success', 'Category Created!');
+    }
+
+    public function editCategory(Category $category)
+    {
+        return view('admin.categories.edit', ['category' => $category]);
+    }
+
+    public function updateCategory(Category $category, Request $request)
+    {
+        $data = $request->except('_token', '_method', 'thumbnail');
+        $data['name'] = request()->store('name');
+        $category->update($data);
+
+        return back()->with('success', 'Category Updated!');
+    }
+
+    public function destroyCategory(Category $category)
+    {
+        $category->delete();
+
+        return redirect('/admin/categories')->with('success', 'Category Deleted!');
+    }
 }
