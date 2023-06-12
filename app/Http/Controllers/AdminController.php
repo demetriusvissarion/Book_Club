@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index', [
+        return view('admin.books.index', [
             'books' => Book::latest()->paginate(6)
         ]);
     }
@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     public function users()
     {
-        return view('admin.users.users', [
+        return view('admin.users.index', [
             'users' => User::latest()->paginate(6)
         ]);
     }
@@ -67,7 +67,7 @@ class AdminController extends Controller
 
     public function categories()
     {
-        return view('admin.categories', [
+        return view('admin.categories.index', [
             'categories' => Category::latest()->paginate(6)
         ]);
     }
