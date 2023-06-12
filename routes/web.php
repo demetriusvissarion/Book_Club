@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminBookController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -39,7 +39,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 // Admin Section
 Route::middleware('can:admin')->group(function () {
-    Route::resource('admin/books', AdminBookController::class)->except('show');
+    Route::resource('admin/books', AdminController::class)->except('show');
 });
-Route::get('admin/users', [AdminBookController::class, 'users'])->name('users');
-Route::get('admin/categories', [AdminBookController::class, 'categories'])->name('categories');
+Route::get('admin/users', [AdminController::class, 'users'])->name('users');
+Route::get('admin/categories', [AdminController::class, 'categories'])->name('categories');
