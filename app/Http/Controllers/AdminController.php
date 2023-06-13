@@ -79,7 +79,7 @@ class AdminController extends Controller
 
     public function storeCategory()
     {
-        Category::create(request());
+        Category::createCategory(request());
 
         return back()->with('success', 'Category Created!');
     }
@@ -91,8 +91,7 @@ class AdminController extends Controller
 
     public function updateCategory(Category $category, Request $request)
     {
-        $data = $request->except('_token', '_method', 'thumbnail');
-        $data['name'] = request()->store('name');
+        $data = $request->except('_token', '_method');
         $category->update($data);
 
         return back()->with('success', 'Category Updated!');

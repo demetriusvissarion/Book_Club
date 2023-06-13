@@ -63,8 +63,19 @@
                             </tbody>
                         </table>
                     </div>
+
+                    {{-- New Category --}}
+                    <form method="POST" action="/admin/categories/create" enctype="multipart/form-data">
+                        @csrf
+
+                        <x-form.button type="submit" class="text-xs font-bold uppercase ml-4">
+                            Add New Category
+                        </x-form.button>
+                    </form>
                 </div>
             </div>
+
+
         </div>
 
         <div class="mt-4 flex justify-center">
