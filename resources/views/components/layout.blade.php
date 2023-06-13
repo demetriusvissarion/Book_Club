@@ -32,14 +32,18 @@
             </div>
 
             <!-- Search -->
-            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2 max-w-max">
                 <form method="GET" action="/">
                     @if (request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
                     @endif
 
-                    <input type="text" name="search" placeholder="Type text + hit Enter"
-                        class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm"
+                    @if (request('author'))
+                        <input type="hidden" name="author" value="{{ request('author') }}">
+                    @endif
+
+                    <input type="text" name="search" placeholder="Search titles and descriptions"
+                        class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm w-96"
                         value="{{ request('search') }}">
                 </form>
             </div>
@@ -50,24 +54,24 @@
                         <x-slot name="trigger">
                             <x-form.button class="text-xs font-bold uppercase">
                                 {{ auth()->user()->name }}
-                                {{-- TODO: add "(admin)" after the name if the user is admin --}}
-                                {{-- @php
-                                $logged_user_name = auth()->user()->name;
-                                if($logged_user_name == "Demetrius Vissarion") {
-                                    echo $logged_user_name . " (admin)"
-                                    } else {echo $logged_user_name;}
-                            @endphp --}}
                             </x-form.button>
                         </x-slot>
 
                         @admin
-                            <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Dashboard
+                            <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Admin Dashboard
                             </x-dropdown-item>
+
+                            <x-dropdown-item href="admin/users/{{ auth()->user()->id }}/edit" :active="request()->is('users/{{ auth()->user()->id }}/edit')">My Account
+                            </x-dropdown-item>
+
                             <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
                             </x-dropdown-item>
                         @endadmin
 
                         @users
+                            <x-dropdown-item href="admin/users/{{ auth()->user()->id }}/edit" :active="request()->is('users/{{ auth()->user()->id }}/edit')">My Account
+                            </x-dropdown-item>
+
                             <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
                             </x-dropdown-item>
                         @endusers
@@ -82,59 +86,21 @@
                     </x-dropdown>
                 @else
                     <a href="/register"
-                        class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Register</a>
-                    <a href="/login"
-                        class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Log
-                        In</a>
+                        class="ml-6 text-xl font-bold uppercase bg-blue-500 text-white py-2 px-10 rounded-2xl hover:bg-blue-600">Register
+                        / Login</a>
                 @endauth
 
-                {{--            <a href="#newsletter" --}}
-                {{--               class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5"> --}}
-                {{--                Subscribe for Updates --}}
-                {{--            </a> --}}
             </div>
         </nav>
 
         {{ $slot }}
 
         <footer id="newsletter"
-            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-2 px-2 mt-1">
-            {{--        <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;"> --}}
+            class=" bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-1 px-1 mt-0">
             <h5 class="text-2xl">Stay in touch with the latest books</h5>
-            {{-- <p class="text-sm mt-1">Promise to keep the inbox clean. No bugs.</p>  --}}
-
-            <div class="mt-2">
-                <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
-
-                    <form method="POST" action="/newsletter" class="lg:flex text-sm">
-                        @csrf
-
-                        {{--
-                        <div class="lg:py-3 lg:px-5 flex items-center">
-                            <label for="email" class="hidden lg:inline-block">
-                                <img src="/images/mailbox-icon.svg" alt="mailbox letter">
-                            </label>
-
-                            <div>
-                                <input id="email" name="email" type="text" placeholder="Your email address"
-                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
-
-                                @error('email')
-                                    <span class="text-xs text-red-500">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <button type="submit"
-                            class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-2 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
-                            Subscribe
-                        </button>
-                          --}}
-                    </form>
-                </div>
-            </div>
         </footer>
     </section>
 
     <x-flash />
+
 </body>

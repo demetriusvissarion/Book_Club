@@ -26,9 +26,10 @@ class BookController extends Controller
             $query->where('user_id', $request->input('user'));
         }
 
+        // add "with" to avoid n+1 error
         $books = $query->latest()->filter(
-            $request->only('search', 'category')
-        )->simplePaginate(3)->withQueryString();
+            $request->only('search', 'author', 'category')
+        )->paginate(3)->withQueryString();
 
         return view('books.index', [
             'books' => $books,
@@ -37,8 +38,6 @@ class BookController extends Controller
 
     public function show(Book $book): View
     {
-        // ddd(auth()->id());
-
         return view('books.show', [
             'book' => $book
         ]);
@@ -46,7 +45,6 @@ class BookController extends Controller
 
     public function create()
     {
-        // dd('test');
         return view('books.create');
     }
 
