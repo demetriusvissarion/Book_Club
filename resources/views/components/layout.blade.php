@@ -32,14 +32,18 @@
             </div>
 
             <!-- Search -->
-            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+            <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2 max-w-max">
                 <form method="GET" action="/">
                     @if (request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
                     @endif
 
-                    <input type="text" name="search" placeholder="Type text + hit Enter"
-                        class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm"
+                    @if (request('author'))
+                        <input type="hidden" name="author" value="{{ request('author') }}">
+                    @endif
+
+                    <input type="text" name="search" placeholder="Search titles and descriptions"
+                        class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm w-96"
                         value="{{ request('search') }}">
                 </form>
             </div>

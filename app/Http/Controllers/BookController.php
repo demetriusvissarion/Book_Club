@@ -26,8 +26,9 @@ class BookController extends Controller
             $query->where('user_id', $request->input('user'));
         }
 
+        // add "with" to avoid n+1 error
         $books = $query->latest()->filter(
-            $request->only('search', 'category')
+            $request->only('search', 'author', 'category')
         )->paginate(3)->withQueryString();
 
         return view('books.index', [
