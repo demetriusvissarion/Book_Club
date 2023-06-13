@@ -4,7 +4,7 @@
             <x-panel>
                 <h1 class="text-center font-bold text-xl">Account details</h1>
 
-                <form method="POST" action="{{ route('update', $user->id) }}" class="mt-10">
+                <form method="POST" action="{{ route('users.update', $user->id) }}" class="mt-10">
                     @csrf
                     @method('PUT')
 
@@ -17,7 +17,7 @@
                     <x-form.button>Save and Exit</x-form.button>
                 </form>
 
-                <form method="POST" action="{{ route('destroy', $user->id) }}">
+                <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                     @csrf
                     @method('DELETE')
 

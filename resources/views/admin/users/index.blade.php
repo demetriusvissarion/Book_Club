@@ -54,14 +54,14 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('edit', $user->id) }}"
+                                            <a href="{{ route('users.edit', $user->id) }}"
                                                 class="text-blue-500 hover:text-blue-600"
                                                 class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Edit</a>
 
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <form method="POST" action="{{ route('destroy', $user->id) }}">
+                                            <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')
 
