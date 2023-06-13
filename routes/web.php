@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminBooksController;
+use App\Http\Controllers\AdminCategoriesController;
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -39,12 +41,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 // Admin Section
 Route::middleware('can:admin')->group(function () {
-    Route::resource('admin/books', AdminController::class)->except('show');
+    Route::resource('admin/books', AdminBooksController::class)->except('show');
+    Route::resource('admin/categories', AdminCategoriesController::class)->except('show');
+    Route::get('admin/users', [AdminUsersController::class, 'users'])->name('users');
 });
-Route::get('admin/users', [AdminController::class, 'users'])->name('users');
-Route::get('admin/categories', [AdminController::class, 'categories'])->name('categories');
-Route::get('admin/categories/create', [AdminController::class, 'createCategory'])->name('createCategory');
-Route::post('admin/categories', [AdminController::class, 'storeCategory'])->name('storeCategory');
-Route::get('admin/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('editCategory');
-Route::put('admin/categories/{category}/update', [AdminController::class, 'updateCategory'])->name('updateCategory');
-Route::delete('admin/categories/{category}/destroy', [AdminController::class, 'destroyCategory'])->name('destroyCategory');

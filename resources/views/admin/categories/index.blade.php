@@ -50,7 +50,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <form method="POST" action="{{ route('destroyCategory', $category->id) }}">
+                                            <form method="POST" action="/admin/categories/{{ $category->id }}">
                                                 @csrf
                                                 @method('DELETE')
 
