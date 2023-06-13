@@ -65,7 +65,7 @@
                     </div>
 
                     {{-- New Category --}}
-                    <form method="POST" action="/admin/categories/create" enctype="multipart/form-data">
+                    <form method="GET" action="/admin/categories/create" enctype="multipart/form-data">
                         @csrf
 
                         <x-form.button type="submit" class="text-xs font-bold uppercase ml-4">

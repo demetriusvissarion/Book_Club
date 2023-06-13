@@ -74,12 +74,13 @@ class AdminController extends Controller
 
     public function createCategory()
     {
+        // dd(view('admin.categories.create'));
         return view('admin.categories.create');
     }
 
     public function storeCategory()
     {
-        Category::createCategory(request());
+        Category::create(request()->except('_token'));
 
         return back()->with('success', 'Category Created!');
     }
@@ -91,10 +92,9 @@ class AdminController extends Controller
 
     public function updateCategory(Category $category, Request $request)
     {
-        $data = $request->except('_token', '_method');
-        $category->update($data);
+        $category->update(request()->all());
 
-        return back()->with('success', 'Category Updated!');
+        return redirect('/admin/categories')->with('success', 'Category Updated!');
     }
 
     public function destroyCategory(Category $category)
