@@ -24,13 +24,9 @@
                             <p>Back to Books</p>
                         </a>
 
-                        {{-- <div class="space-x-2">
-                            <x-category-button :category="$book->category" />
-                        </div> --}}
                     </div>
 
                     <div class="space-x-2 mb-2 flex flex-row align-middle">
-                        {{-- <strong>Title: </strong> --}}
                         <h1 class="font-bold text-3xl lg:text-4xl mb-2 ml-0">
                             {{ $book->title }}
                         </h1>
@@ -62,7 +58,6 @@
                         {!! $book->excerpt !!}
                     </div>
 
-                    {{-- TODO: change later to an anchor tag redirecting to a download route --}}
                     <div class="mt-4">
                         <a href="{{ $book->id }}/download"
                             class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
@@ -77,9 +72,6 @@
                                     style="display: inline-block">
                                     @method('DELETE')
                                     @csrf
-                                    {{-- @php
-                                        dd(route('books.userDestroy', $book));
-                                    @endphp --}}
                                     <button
                                         onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')"
                                         class="btn btn-danger bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-4"
@@ -88,11 +80,7 @@
                             </div>
                         @endif
 
-                        {{-- <a href="{{ $book->id }}/edit"
-                            class="bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
-                            style="font-size: 10px">Edit</a> --}}
                     </div>
-                    {{--                    <a href="{{ route('download.pdf') }}" class="btn btn-primary">Download PDF</a> --}}
 
                 </div>
 
