@@ -19,11 +19,21 @@ class AdminBooksController extends Controller
         return view('admin.adminBooks.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Book::create(request()->except('_token'));
+        $attributes = [
+            'user_id' => $request->input('user_id'),
+            'category_id' => $request->input('category_id'),
+            'slug' => $request->input('slug'),
+            'title' => $request->input('title'),
+            'excerpt' => $request->input('excerpt'),
+            'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
+            'pdf' => $request->file('pdf')->store('pdf'),
+        ];
 
-        return back();
+        Book::create($attributes);
+
+        return redirect('/')->with('success', 'Book Published!');
     }
 
     public function edit(Book $book)
@@ -37,7 +47,7 @@ class AdminBooksController extends Controller
         $data['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         $book->update($data);
 
-        return back()->with('success', 'Book Updated!');
+        return redirect('/admin/adminBooks')->with('success', 'Book Updated!');
     }
 
     public function destroy(Book $book)

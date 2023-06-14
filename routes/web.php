@@ -32,7 +32,11 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 // Admin Section (access restricted to admin)
 Route::middleware('can:admin')->group(function () {
-    Route::resource('admin/adminBooks', AdminBooksController::class)->except('show');
+    Route::resource('admin/adminBooks', AdminBooksController::class)->except('show', 'edit', 'update', 'destroy');
+    Route::get('admin/adminBooks/{book}/edit', [AdminBooksController::class, 'edit'])->name('adminBooks.edit');
+    Route::patch('admin/adminBooks/{book}', [AdminBooksController::class, 'update'])->name('adminBooks.update');
+    Route::delete('admin/adminBooks/{book}', [AdminBooksController::class, 'destroy'])->name('adminBooks.destroy');
+
     Route::resource('admin/categories', AdminCategoriesController::class)->except('show');
     Route::resource('admin/users', AdminUsersController::class)->except('show');
 });
