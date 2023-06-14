@@ -1,6 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
-        <main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
+        <main class="max-w-6xl mx-auto mt-2 lg:mt-2 space-y-6">
             <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
                 <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
                     <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="Book Thumbnail" class="rounded-xl">
@@ -59,26 +59,31 @@
                     </div>
 
                     <div class="mt-4">
-                        <a href="{{ $book->id }}/download"
+                        <a href="/register"
                             class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
-                            PDF</a>
+                            PDF (requires login)</a>
 
-                        @if ($book->user_id === \Auth::user()->id)
-                            <div class="align-items-center">
-                                <a href="/books/{{ $book->id }}/edit"
-                                    class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
-                                    style="font-size: 10px">Edit</a>
-                                <form method="post" action="{{ route('books.userDestroy', $book) }}"
-                                    style="display: inline-block">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button
-                                        onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')"
-                                        class="btn btn-danger bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-4"
-                                        style="font-size: 10px">{{ __('Delete') }}</button>
-                                </form>
-                            </div>
-                        @endif
+                        @users
+                            <a href="{{ $book->id }}/download"
+                                class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
+                                PDF</a>
+                            @if ($book->user_id === \Auth::user()->id)
+                                <div class="align-items-center">
+                                    <a href="/books/{{ $book->id }}/edit"
+                                        class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
+                                        style="font-size: 10px">Edit</a>
+                                    <form method="post" action="{{ route('books.userDestroy', $book) }}"
+                                        style="display: inline-block">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button
+                                            onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')"
+                                            class="btn btn-danger bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-4"
+                                            style="font-size: 10px">{{ __('Delete') }}</button>
+                                    </form>
+                                </div>
+                            @endif
+                        @endusers
 
                     </div>
 

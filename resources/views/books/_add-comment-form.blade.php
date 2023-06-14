@@ -24,7 +24,7 @@
         </form>
     </x-panel>
 @else
-    <p class="font-semibold">
+    <p class="font-semibold mt-0 mb-0 ml-0 mr-0">
         <a href="/register" class="hover:underline">Register</a> or
         <a href="/login" class="hover:underline">log in</a> to leave a comment.
     </p>
