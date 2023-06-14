@@ -6,8 +6,8 @@
 
                 <ul>
                     <li>
-                        <a href="/admin/books"
-                            class="{{ request()->is('admin/books') ? 'bg-blue-500 text-white' : '' }}">Books
+                        <a href="/admin/adminBooks"
+                            class="{{ request()->is('admin/adminBooks') ? 'bg-blue-500 text-white' : '' }}">Books
                             Management</a>
                     </li>
 

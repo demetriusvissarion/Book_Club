@@ -13,7 +13,7 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 Route::get('books/{book:slug}', [BookController::class, 'show'])->name('books.show');
 
 // Book Section (access restricted to users and admin)
-Route::middleware(['can:users'])->group(function () {
+Route::middleware('can:users')->group(function () {
     Route::resource('books', BookController::class)->except('destroy', 'show');
     Route::delete('books/{book}', [BookController::class, 'userDestroy'])->name('books.userDestroy');
     Route::get('books/{id}/download', [BookController::class, 'download']);
@@ -32,7 +32,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 // Admin Section (access restricted to admin)
 Route::middleware('can:admin')->group(function () {
-    Route::resource('admin/books', AdminBooksController::class)->except('show');
+    Route::resource('admin/adminBooks', AdminBooksController::class)->except('show');
     Route::resource('admin/categories', AdminCategoriesController::class)->except('show');
     Route::resource('admin/users', AdminUsersController::class)->except('show');
 });

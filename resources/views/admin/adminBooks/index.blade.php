@@ -6,8 +6,8 @@
 
                 <ul>
                     <li>
-                        <a href="/admin/books"
-                            class="{{ request()->is('admin/books') ? 'bg-blue-500 text-white' : '' }}">Books
+                        <a href="/admin/adminBooks"
+                            class="{{ request()->is('admin/adminBooks') ? 'bg-blue-500 text-white' : '' }}">Books
                             Management</a>
                     </li>
 
@@ -45,12 +45,12 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="/admin/books/{{ $book->id }}/edit"
+                                            <a href="/admin/adminBooks/{{ $book->id }}/edit"
                                                 class="text-blue-500 hover:text-blue-600">Edit</a>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <form method="POST" action="/admin/books/{{ $book->id }}">
+                                            <form method="POST" action="/admin/adminBooks/{{ $book->id }}">
                                                 @csrf
                                                 @method('DELETE')
 

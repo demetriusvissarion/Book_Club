@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting heading="Admin: Publish New Book">
-        <form method="POST" action="/admin/books" enctype="multipart/form-data">
+        <form method="POST" action="/admin/adminBooks" enctype="multipart/form-data">
             @csrf
 
             <x-form.field>

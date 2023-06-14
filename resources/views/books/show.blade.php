@@ -68,7 +68,7 @@
                                 <a href="/books/{{ $book->id }}/edit"
                                     class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
                                     style="font-size: 10px">Edit</a>
-                                <form method="post" action="{{ route('books.destroy', $book) }}"
+                                <form method="post" action="{{ route('books.userDestroy', $book) }}"
                                     style="display: inline-block">
                                     @method('DELETE')
                                     @csrf

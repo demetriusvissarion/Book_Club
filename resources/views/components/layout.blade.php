@@ -58,18 +58,18 @@
                         </x-slot>
 
                         @admin
-                            <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')">Admin Dashboard
+                            <x-dropdown-item href="/admin/adminBooks" :active="request()->is('admin/adminBooks')">Admin Dashboard
                             </x-dropdown-item>
 
                             <x-dropdown-item href="admin/users/{{ auth()->user()->id }}/edit" :active="request()->is('users/{{ auth()->user()->id }}/edit')">My Account
                             </x-dropdown-item>
 
-                            <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Book
+                            <x-dropdown-item href="/admin/adminBooks/create" :active="request()->is('admin/adminBooks/create')">New Book
                             </x-dropdown-item>
                         @endadmin
 
                         @users
-                            <x-dropdown-item href="admin/users/{{ auth()->user()->id }}/edit" :active="request()->is('users/{{ auth()->user()->id }}/edit')">My Account
+                            <x-dropdown-item href="users/{{ auth()->user()->id }}/edit" :active="request()->is('users/{{ auth()->user()->id }}/edit')">My Account
                             </x-dropdown-item>
 
                             <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book

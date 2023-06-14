@@ -9,14 +9,14 @@ class AdminBooksController extends Controller
 {
     public function index()
     {
-        return view('admin.books.index', [
+        return view('admin.adminBooks.index', [
             'books' => Book::latest()->paginate(6)
         ]);
     }
 
     public function create()
     {
-        return view('admin.books.create');
+        return view('admin.adminBooks.create');
     }
 
     public function store()
@@ -28,7 +28,7 @@ class AdminBooksController extends Controller
 
     public function edit(Book $book)
     {
-        return view('admin.books.edit', ['book' => $book]);
+        return view('admin.adminBooks.edit', ['book' => $book]);
     }
 
     public function update(Book $book, Request $request)
@@ -44,6 +44,6 @@ class AdminBooksController extends Controller
     {
         $book->delete();
 
-        return redirect('/admin/books')->with('success', 'Book Deleted!');
+        return redirect('/admin/adminBooks')->with('success', 'Book Deleted!');
     }
 }
