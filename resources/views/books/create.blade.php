@@ -1,5 +1,5 @@
 <x-layout>
-    <x-setting heading="Publish New Book">
+    <x-setting heading="Create New Book">
         <form method="POST" action="/books" enctype="multipart/form-data">
             @csrf
 

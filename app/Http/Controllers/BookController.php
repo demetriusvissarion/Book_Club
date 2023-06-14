@@ -16,7 +16,7 @@ class BookController extends Controller
     public function __construct()
     {
         // every function under this controller must use the auth middleware except for the the index function
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except('index', 'show');
     }
     public function index(Request $request): View
     {
@@ -45,6 +45,7 @@ class BookController extends Controller
 
     public function create()
     {
+        // dd('Reached "create" method');
         return view('books.create');
     }
 
@@ -56,7 +57,7 @@ class BookController extends Controller
             'pdf' => request()->file('pdf')->store('pdf'),
         ]));
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Book Published!');
     }
 
     public function download()
