@@ -10,11 +10,11 @@ use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class, 'index'])->name('home');
+Route::get('books/{book:slug}', [BookController::class, 'show'])->name('books.show');
 
 // Book Section (access restricted to users and admin)
-Route::middleware('can:users')->group(function () {
-    Route::resource('books', BookController::class)->except('destroy');
-    Route::get('books/{book:slug}', [BookController::class, 'show'])->name('books.show');;
+Route::middleware(['can:users'])->group(function () {
+    Route::resource('books', BookController::class)->except('destroy', 'show');
     Route::delete('books/{book}', [BookController::class, 'userDestroy'])->name('books.userDestroy');
     Route::get('books/{id}/download', [BookController::class, 'download']);
 });
