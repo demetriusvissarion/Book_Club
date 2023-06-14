@@ -35,5 +35,13 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('update-book', function (User $user, Book $book) {
             return $user->id === $book->user_id;
         });
+
+        Gate::define('guests', function ($user) {
+            return $user === null;
+        });
+
+        Blade::if('guests', function () {
+            return request()->user() === null;
+        });
     }
 }

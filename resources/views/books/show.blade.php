@@ -59,9 +59,11 @@
                     </div>
 
                     <div class="mt-4">
+                        @guests
                         <a href="/register"
                             class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
                             PDF (requires login)</a>
+                        @endguests
 
                         @users
                             <a href="{{ $book->id }}/download"
