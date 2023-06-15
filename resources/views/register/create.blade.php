@@ -7,6 +7,9 @@
                 <form method="POST" action="/register" class="mt-2">
                     @csrf
 
+                    <input name="book_slug" type="hidden" value="{{ request()->get('book-slug') }}">
+                    </input>
+
                     <x-form.input name="name" required />
                     <x-form.input name="username" required />
                     <x-form.input name="email" type="email" required />
@@ -24,6 +27,9 @@
 
                 <form method="POST" action="/login" class="mt-2">
                     @csrf
+
+                    <input name="book_slug" type="hidden" value="{{ request()->get('book-slug') }}">
+                    </input>
 
                     <x-form.input name="email" type="email" autocomplete="username" required />
                     <x-form.input name="password" type="password" autocomplete="current-password" required />

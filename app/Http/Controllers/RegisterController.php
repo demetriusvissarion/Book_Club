@@ -10,11 +10,13 @@ class RegisterController extends Controller
 {
     public function create()
     {
+        // dd(request()->get('book-slug'));
         return view('register.create');
     }
 
     public function store()
     {
+        // dd(request()->all());
         $attributes = request()->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:255|unique:users,username',
@@ -26,7 +28,8 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', 'Your account has been created.');
+        // return redirect('/books/' . request()->book_slug . '/show')->with('success', 'Your account has been created.');
+        return request()->book_slug ? redirect('/books/' . request()->book_slug . '/show')->with('success', 'Your account has been created.') : redirect('/')->with('success', 'Your account has been created.');
     }
 
     public function edit(User $user)

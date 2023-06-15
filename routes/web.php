@@ -16,7 +16,7 @@ Route::get('books/{book:slug}/show', [BookController::class, 'show'])->name('boo
 Route::middleware('can:users')->group(function () {
     Route::resource('books', BookController::class)->except('show', 'destroy');
     Route::delete('books/{book}', [BookController::class, 'userDestroy'])->name('books.userDestroy');
-    Route::get('books/{id}/download', [BookController::class, 'download']);
+    Route::get('books/{slug}/download', [BookController::class, 'download']);
 });
 
 // Book Comment section

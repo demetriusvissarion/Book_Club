@@ -7,8 +7,11 @@
                 <form method="POST" action="/login" class="mt-10">
                     @csrf
 
-                    <x-form.input name="email" type="email" autocomplete="username" required/>
-                    <x-form.input name="password" type="password" autocomplete="current-password" required/>
+                    {{-- <input name="book_slug" type="hidden" value="{{ request()->get('book-slug') }}">
+                    </input> --}}
+
+                    <x-form.input name="email" type="email" autocomplete="username" required />
+                    <x-form.input name="password" type="password" autocomplete="current-password" required />
 
                     <x-form.button>Log In</x-form.button>
                 </form>
