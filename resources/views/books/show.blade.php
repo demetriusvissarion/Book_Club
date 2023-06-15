@@ -87,6 +87,26 @@
                             @endif
                         @endusers
 
+                        @admin
+                            <a href="download"
+                                class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 mt-4">Download
+                                PDF</a>
+                            <div class="align-items-center">
+                                <a href="/books/{{ $book->id }}/edit"
+                                    class="btn btn-warning bg-yellow-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-yellow-600 mt-4"
+                                    style="font-size: 10px">Edit</a>
+                                <form method="post" action="{{ route('books.userDestroy', $book) }}"
+                                    style="display: inline-block">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button
+                                        onclick="return confirm('{{ __('Are you sure you want to delete this book? It will be permanent.') }}')"
+                                        class="btn btn-danger bg-red-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-red-600 mt-4"
+                                        style="font-size: 10px">{{ __('Delete') }}</button>
+                                </form>
+                            </div>
+                        @endadmin
+
                     </div>
 
                 </div>
