@@ -48,8 +48,6 @@ class AdminUsersController extends Controller
 
     public function update(User $user, Request $request)
     {
-        // $user = auth()->user();
-
         $attributes = request()->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:3|max:255|unique:users,username,' . $user->id,
@@ -59,13 +57,13 @@ class AdminUsersController extends Controller
 
         $user->update($attributes);
 
-        return back()->with('success', 'Your account has been updated.');
+        return redirect('/')->with('success', 'Your account has been updated.');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
 
-        return back()->with('success', 'User Deleted!');
+        return redirect('/')->with('success', 'User Deleted!');
     }
 }
