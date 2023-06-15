@@ -23,11 +23,13 @@ class Book extends Model
 
     public function scopeFilter($query, array $filters)
     {
+        // dd($query);
         $query->when(
             $filters['search'] ?? false,
             fn ($query, $search) =>
             $query->where(fn ($query) =>
             $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('user_id', 'like', '%' . $search . '%')
                 ->orWhere('excerpt', 'like', '%' . $search . '%'))
         );
 

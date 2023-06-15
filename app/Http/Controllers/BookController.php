@@ -25,10 +25,11 @@ class BookController extends Controller
             $query->where('user_id', $request->input('user'));
         }
 
-        // add "with" to avoid n+1 error
-        $books = $query->latest()->filter(
-            $request->only('search', 'author', 'category')
-        )->paginate(3)->withQueryString();
+        $books = $query->with(['category', 'author']) // Add "with" to eager load relationships
+            ->latest()
+            ->filter($request->only('search', 'author', 'category'))
+            ->paginate(3)
+            ->withQueryString();
 
         return view('books.index', [
             'books' => $books,
