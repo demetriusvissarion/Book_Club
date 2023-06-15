@@ -23,7 +23,6 @@ class AuthorDropdown extends Component
     public function render(): View|Closure|string
     {
         return view('components.author-dropdown', [
-            // TODO: add condition to only display as authors the users that have uploaded books
             'users' => User::has('books')->get(),
             'currentUser' => User::firstWhere('id', request('user'))
         ]);

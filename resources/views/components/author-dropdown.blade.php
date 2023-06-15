@@ -11,7 +11,7 @@
         All
     </x-dropdown-item>
 
-    @foreach ($users as $user)
+    @foreach ($users->sortBy('name') as $user)
         <x-dropdown-item href="/?user={{ $user->id }}&{{ http_build_query(request()->except('user', 'page')) }}"
             :active='request()->fullUrlIs("*?user={$user->id}*")'>
             {{ ucwords($user->name) }}
