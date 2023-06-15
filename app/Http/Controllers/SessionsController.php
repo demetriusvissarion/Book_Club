@@ -9,7 +9,6 @@ class SessionsController extends Controller
 {
     public function create()
     {
-//        dd('string');
         return view('sessions.create');
     }
 
@@ -20,12 +19,10 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-//        dd(auth()->attempt($attributes));
-        if (! auth()->attempt($attributes)) {
+        if (!auth()->attempt($attributes)) {
             throw ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verified.'
             ]);
-
         }
         session()->regenerate();
 
