@@ -14,7 +14,7 @@ class BookController extends Controller
 {
     public function __construct()
     {
-        // every function under this controller must use the auth middleware except for the the index function
+        // every function under this controller must use the auth middleware except for the index and show functions
         $this->middleware('auth')->except('index', 'show');
     }
     public function index(Request $request): View
