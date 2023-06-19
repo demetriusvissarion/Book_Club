@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "070fce32572a3b2399d6310201e2ead8",
+    "content-hash": "5d5b28b5e0795d65e40361ceb301c965",
     "packages": [
         {
             "name": "brick/math",
@@ -5531,7 +5531,7 @@
                 "illuminate/filesystem": "^10.0",
                 "illuminate/support": "^10.0",
                 "illuminate/validation": "^10.0",
-                "php": "^8.0"
+                "php": "^8.0.29 || ^8.1.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^8.0",
@@ -5586,7 +5586,7 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.0"
+                "php": "^8.0.29 || ^8.1.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.17.0",
@@ -5824,7 +5824,7 @@
             "require": {
                 "filp/whoops": "^2.15.2",
                 "nunomaduro/termwind": "^1.15.1",
-                "php": "^8.0",
+                "php": "^8.0.29 || ^8.1.0",
                 "symfony/console": "^6.3.0"
             },
             "conflict": {
