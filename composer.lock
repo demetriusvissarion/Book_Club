@@ -5531,7 +5531,7 @@
                 "illuminate/filesystem": "^10.0",
                 "illuminate/support": "^10.0",
                 "illuminate/validation": "^10.0",
-                "php": "^8.0.29 || ^8.1.0"
+                "php": "^8.0.29"
             },
             "require-dev": {
                 "orchestra/testbench": "^8.0",
@@ -5586,7 +5586,7 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.0.29 || ^8.1.0"
+                "php": "^8.0.29"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.17.0",
@@ -5824,7 +5824,7 @@
             "require": {
                 "filp/whoops": "^2.15.2",
                 "nunomaduro/termwind": "^1.15.1",
-                "php": "^8.0.29 || ^8.1.0",
+                "php": "^8.0.29",
                 "symfony/console": "^6.3.0"
             },
             "conflict": {
@@ -7539,7 +7539,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.29 || ^8.1.0"
+        "php": "^8.0.29"
     },
     "platform-dev": [],
     "platform-overrides": {
