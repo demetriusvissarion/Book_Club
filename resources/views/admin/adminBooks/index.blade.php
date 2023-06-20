@@ -1,5 +1,5 @@
 <x-layout>
-    <x-setting heading="Manage Books">
+    <x-setting heading="Admin Dashboard">
         <div class="flex flex-row">
             <x-links />
 
@@ -45,6 +45,7 @@
             </div>
         </div>
 
+        {{-- Pagination --}}
         <div class="mt-4 flex justify-center">
             Showing:
             <div class="ml-2">

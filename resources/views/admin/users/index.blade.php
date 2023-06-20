@@ -1,5 +1,5 @@
 <x-layout>
-    <x-setting heading="Manage Books">
+    <x-setting heading="Admin Dashboard">
         <div class="flex flex-row">
             <x-links />
 
@@ -87,4 +87,5 @@
         </div>
 
     </x-setting>
+
 </x-layout>

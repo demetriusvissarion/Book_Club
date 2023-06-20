@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\AdminUsers2Controller;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -44,4 +45,5 @@ Route::middleware('can:admin')->group(function () {
 
     Route::resource('admin/categories', AdminCategoriesController::class)->except('show');
     Route::resource('admin/users', AdminUsersController::class)->except('show');
+    Route::resource('admin/users2', AdminUsers2Controller::class)->except('show');
 });

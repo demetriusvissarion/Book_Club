@@ -16,6 +16,7 @@
         </div>
 
 
-
     </nav>
+    @livewireStyles
+    @powerGridStyles
 </header>
