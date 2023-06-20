@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 
 class AdminUsersController extends Controller
 {
+    use WithPagination;
+
     public function index()
     {
         return view('admin.users.index', [
@@ -38,7 +41,9 @@ class AdminUsersController extends Controller
 
         User::create($attributes);
 
-        return redirect('/')->with('success', 'Your account has been created.');
+        session()->flash('success', 'Your account has been created.');
+
+        return redirect('/');
     }
 
     public function edit(User $user)
@@ -57,13 +62,17 @@ class AdminUsersController extends Controller
 
         $user->update($attributes);
 
-        return redirect('/')->with('success', 'Your account has been updated.');
+        session()->flash('success', 'Your account has been updated.');
+
+        return back();
     }
 
     public function destroy(User $user)
     {
         $user->delete();
 
-        return redirect('/')->with('success', 'User Deleted!');
+        session()->flash('success', 'User Deleted!');
+
+        return back();
     }
 }

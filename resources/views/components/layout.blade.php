@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>Book CLub</title>
+<title>Book Club</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,8 @@
                         <input type="hidden" name="author" value="{{ request('author') }}">
                     @endif
 
-                    <input type="text" name="search" placeholder="Search titles and descriptions"
+                    <input type="text" name="search"
+                        placeholder="Search authors, categories, titles and descriptions"
                         class="bg-transparent placeholder-gray-500 placeholder-opacity-50 font-semibold text-sm w-96"
                         value="{{ request('search') }}">
                 </form>
@@ -71,7 +72,7 @@
                         @endadmin
 
                         @users
-                            <x-dropdown-item href="register/{{ auth()->user()->id }}/edit" :active="request()->is('register/{{ auth()->user()->id }}/edit')">My Account
+                            <x-dropdown-item href="/register/{{ auth()->user()->id }}/edit" :active="request()->is('register/{{ auth()->user()->id }}/edit')">My Account
                             </x-dropdown-item>
 
                             <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
