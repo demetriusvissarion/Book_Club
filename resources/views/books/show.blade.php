@@ -21,7 +21,7 @@
                                 </g>
                             </svg>
 
-                            <p>Back to Books</p>
+                            <p class="z-0">Back to Books</p>
                         </a>
 
                     </div>

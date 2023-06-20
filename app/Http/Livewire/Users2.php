@@ -90,11 +90,11 @@ final class Users2 extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('name')
 
-           /** Example of custom column using a closure **/
+            /** Example of custom column using a closure **/
             ->addColumn('name_lower', fn (User $model) => strtolower(e($model->name)))
 
-            ->addColumn('email')
-            ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->addColumn('email');
+        // ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     /*
@@ -106,11 +106,11 @@ final class Users2 extends PowerGridComponent
     |
     */
 
-     /**
-      * PowerGrid Columns.
-      *
-      * @return array<int, Column>
-      */
+    /**
+     * PowerGrid Columns.
+     *
+     * @return array<int, Column>
+     */
     public function columns(): array
     {
         return [
@@ -123,8 +123,8 @@ final class Users2 extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
+            // Column::make('Created at', 'created_at_formatted', 'created_at')
+            //     ->sortable(),
 
         ];
     }

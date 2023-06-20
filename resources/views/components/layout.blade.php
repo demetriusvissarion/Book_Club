@@ -23,9 +23,9 @@
 </style>
 
 <body style="font-family: Open Sans, sans-serif">
-    <section class="px-6 py-0">
-        <nav class="md:flex md:justify-between md:items-center bg-blue-300 pr-20 sticky top-0">
-            <div>
+    <section class="z-50 relative px-6 py-0">
+        <nav class="z-50 relative md:flex md:justify-between md:items-center bg-blue-300 pr-20 sticky top-0">
+            <div class="z-50 relative">
                 <a href="/">
                     <img src="/images/logo.png" alt="Book Club Logo" class="w-32 h-full">
                 </a>
@@ -94,7 +94,9 @@
             </div>
         </nav>
 
-        {{ $slot }}
+        <div class="z-0">
+            {{ $slot }}
+        </div>
 
         <footer id="newsletter"
             class=" bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-1 px-1 mt-0">
