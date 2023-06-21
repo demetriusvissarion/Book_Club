@@ -3,7 +3,6 @@
         <div class="flex flex-row">
             <x-links />
             <livewire:user-management />
-            {{-- @livewire('user-management') --}}
         </div>
     </x-setting>
 </x-layout>
