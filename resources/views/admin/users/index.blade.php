@@ -11,7 +11,7 @@
                             <thead>
                                 <tr>
                                     <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        class="pl-6 text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Name
                                     </th>
                                     <th
@@ -20,6 +20,7 @@
                                     </th>
                                 </tr>
                             </thead>
+
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($users as $user)
                                     <tr>

@@ -8,13 +8,22 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="pl-6 text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Book Title
+                                    </th>
+                                </tr>
+                            </thead>
+
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($books as $book)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex items-center text-sm font-medium text-gray-900">
-                                                    <p class="mr-5">Book title:</p>
+                                                    {{-- <p class="mr-5">Book title:</p> --}}
                                                     <a href="/books/{{ $book->slug }}">
                                                         {{ $book->title }}
                                                     </a>

@@ -48,5 +48,5 @@ Route::middleware('can:admin')->group(function () {
     Route::resource('admin/users', AdminUsersController::class)->except('show');
 });
 
-// Users2 component with Livewire
-Route::get('admin/users2', UserManagement::class);
+// User Management component with Livewire
+Route::get('admin/users2', [UserManagement::class, 'render']);
