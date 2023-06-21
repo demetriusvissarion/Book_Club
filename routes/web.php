@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminUsers2Controller;
-use App\Http\Livewire\Users2;
+use App\Http\Livewire\UserManagement;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -49,4 +49,4 @@ Route::middleware('can:admin')->group(function () {
 });
 
 // Users2 component with Livewire
-Route::get('admin/users2', Users2::class);
+Route::get('admin/users2', UserManagement::class);

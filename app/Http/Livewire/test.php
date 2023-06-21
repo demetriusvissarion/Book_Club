@@ -9,11 +9,13 @@ use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\{ActionButton, WithExport};
 use PowerComponents\LivewirePowerGrid\Filters\Filter;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridColumns};
+use Livewire\WithPagination;
 
 final class Users2 extends PowerGridComponent
 {
     use ActionButton;
     use WithExport;
+    use WithPagination;
 
     /*
     |--------------------------------------------------------------------------
@@ -87,13 +89,13 @@ final class Users2 extends PowerGridComponent
     public function addColumns(): PowerGridColumns
     {
         return PowerGrid::columns()
-            ->addColumn('id')
             ->addColumn('name')
+            ->addColumn('books_uploaded');
 
-            /** Example of custom column using a closure **/
-            ->addColumn('name_lower', fn (User $model) => strtolower(e($model->name)))
+        /** Example of custom column using a closure **/
+        // ->addColumn('name_lower', fn (User $model) => strtolower(e($model->name)));
 
-            ->addColumn('email');
+        // ->addColumn('email');
         // ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
@@ -114,12 +116,12 @@ final class Users2 extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Id', 'id'),
+            // Column::make('Id', 'id'),
             Column::make('Name', 'name')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Email', 'email')
+            Column::make('Books Uploaded', 'books_uploaded')
                 ->sortable()
                 ->searchable(),
 
@@ -138,8 +140,8 @@ final class Users2 extends PowerGridComponent
     {
         return [
             Filter::inputText('name')->operators(['contains']),
-            Filter::inputText('email')->operators(['contains']),
-            Filter::datetimepicker('created_at'),
+            Filter::inputText('books_uploaded')->operators(['contains']),
+            // Filter::datetimepicker('created_at'),
         ];
     }
 
