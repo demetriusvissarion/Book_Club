@@ -64,8 +64,8 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
+
                     {{-- New User --}}
                     <form method="GET" action="/admin/users/create" enctype="multipart/form-data">
                         @csrf

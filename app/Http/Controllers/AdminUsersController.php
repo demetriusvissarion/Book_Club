@@ -17,13 +17,6 @@ class AdminUsersController extends Controller
         ]);
     }
 
-    public function showUserUploadedBooksCount($userId)
-    {
-        $user = User::findOrFail($userId);
-        $uploadedBooksCount = $user->getUploadedBooksCount();
-
-        return $uploadedBooksCount;
-    }
 
     public function create()
     {
@@ -41,9 +34,9 @@ class AdminUsersController extends Controller
 
         User::create($attributes);
 
-        session()->flash('success', 'Your account has been created.');
+        session()->flash('success', 'User has been created.');
 
-        return redirect('/');
+        return redirect('/admin/users');
     }
 
     public function edit(User $user)
@@ -62,7 +55,7 @@ class AdminUsersController extends Controller
 
         $user->update($attributes);
 
-        session()->flash('success', 'Your account has been updated.');
+        session()->flash('success', 'User account has been updated.');
 
         return back();
     }

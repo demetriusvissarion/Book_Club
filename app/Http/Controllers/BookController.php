@@ -25,11 +25,10 @@ class BookController extends Controller
             $query->where('user_id', $request->input('user'));
         }
 
-        $books = $query->with(['category', 'author']) // Add "with" to eager load relationships
+        $books = $query->with(['category', 'author'])
             ->latest()
             ->filter($request->only('search', 'author', 'category'))
-            ->paginate(3)
-            ->withQueryString();
+            ->paginate(3);
 
         return view('books.index', [
             'books' => $books,
