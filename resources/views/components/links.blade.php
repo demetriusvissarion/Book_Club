@@ -20,7 +20,8 @@
         </li>
 
         <li>
-            <a href="/admin/users2" class="{{ request()->is('admin/users2') ? 'bg-blue-500 text-white' : '' }}">Users
+            <a href="/user-management"
+                class="{{ request()->is('user-management') ? 'bg-blue-500 text-white' : '' }}">Users
                 Management 2 (Livewire)</a>
         </li>
     </ul>

@@ -4,65 +4,92 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use Livewire\WithPagination;
 use Illuminate\Http\Request;
 
 class UserManagement extends Component
 {
+    use WithPagination;
+
+    public $users, $name, $username, $email, $password;
+    public $updateMode = false;
+
     public function render()
     {
+        $this->users = User::all();
         return view('livewire.user-management', [
-            'users' => User::latest()->paginate(6)
+            'users' => User::paginate(10),
         ]);
     }
 
-    public function create()
+    private function resetInputFields()
     {
-        return view('admin.users2.create');
+        $this->name = '';
+        $this->email = '';
     }
 
     public function store()
     {
-        $attributes = request()->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|min:3|max:255|unique:users,username',
-            'email' => 'required|email|max:255|unique:users,email',
-            'password' => 'required|min:7|max:255',
+        $validatedDate = $this->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|email',
         ]);
 
-        User::create($attributes);
+        User::create($validatedDate);
 
-        session()->flash('success', 'User has been created.');
+        session()->flash('message', 'Users Created Successfully.');
 
-        return redirect('/admin/users2');
+        $this->resetInputFields();
+
+        $this->emit('userStore');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('admin.users2.edit', ['user' => $user]);
+        $this->updateMode = true;
+        $user = User::where('id', $id)->first();
+        $this->name = $user->name;
+        $this->username = $user->username;
+        $this->email = $user->email;
+        $this->password = $user->password;
     }
 
-    public function update(User $user, Request $request)
+    public function cancel()
     {
-        $attributes = request()->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|min:3|max:255|unique:users,username,' . $user->id,
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'required|min:7|max:255',
+        $this->updateMode = false;
+        $this->resetInputFields();
+    }
+
+    public function update()
+    {
+        $validatedDate = $this->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|email',
         ]);
 
-        $user->update($attributes);
-
-        session()->flash('success', 'User account has been updated.');
-
-        return back();
+        if ($this->user_id) {
+            $user = User::find($this->user_id);
+            $user->update([
+                'name' => $this->name,
+                'username' => $this->username,
+                'email' => $this->email,
+                'password' => $this->password,
+            ]);
+            $this->updateMode = false;
+            session()->flash('message', 'User Updated Successfully.');
+            $this->resetInputFields();
+        }
     }
 
-    public function destroy(User $user)
+    public function delete($id)
     {
-        $user->delete();
-
-        session()->flash('success', 'User Deleted!');
-
-        return back();
+        if ($id) {
+            User::where('id', $id)->delete();
+            session()->flash('message', 'User Deleted Successfully.');
+        }
     }
 }

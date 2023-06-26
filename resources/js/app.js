@@ -1,1 +1,3 @@
-import './bootstrap';
+// import "./bootstrap";
+
+// require("bootstrap");

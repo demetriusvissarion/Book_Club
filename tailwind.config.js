@@ -7,6 +7,8 @@ module.exports = {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./node_modules/flowbite/**/*.js",
+        "./vendor/wire-elements/pro/config/wire-elements-pro.php",
+        "./vendor/wire-elements/pro/**/*.blade.php",
     ],
 
     theme: {
