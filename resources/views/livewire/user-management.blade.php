@@ -7,7 +7,8 @@
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
 
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <div id="main-container"
+                            class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg modal-open:hidden">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
@@ -28,10 +29,7 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div class="flex items-center text-sm font-medium text-gray-900">
-                                                        {{-- <p class="mr-5">User Name:</p> --}}
-                                                        {{-- <a href="/admin/users"> --}}
                                                         {{ $user->name }}
-                                                        {{-- </a> --}}
                                                     </div>
                                                 </div>
                                             </td>
@@ -39,7 +37,6 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div class="flex items-center text-sm font-medium text-gray-900">
-                                                        {{-- <p class="mr-5">No. of Books Uploaded:</p> --}}
                                                         <p>{{ $user->getUploadedBooksCount() }}</p>
                                                     </div>
                                                 </div>
@@ -68,13 +65,19 @@
                         </div>
 
                         {{-- New User --}}
-                        <form method="GET" action="/admin/users/create" enctype="multipart/form-data">
+                        {{-- <form method="GET" action="/admin/users/create" enctype="multipart/form-data">
                             @csrf
 
                             <x-form.button type="submit" class="text-xs font-bold uppercase ml-4">
                                 Add New User
                             </x-form.button>
-                        </form>
+                        </form> --}}
+
+                        {{-- New User Modal --}}
+                        <button onclick="Livewire.emit('openModal', 'user-management-modal')">Open Modal</button>
+                        {{-- <button wire:click="$emit('openModal', 'user-management-modal')">Open Modal</button> --}}
+                        {{-- <button x-on:click="isOpen = !isOpen">Open Modal</button> --}}
+
                     </div>
                 </div>
             </div>

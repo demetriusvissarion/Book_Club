@@ -48,5 +48,10 @@ Route::middleware('can:admin')->group(function () {
     Route::resource('admin/users', AdminUsersController::class)->except('show');
 });
 
-// User Management component with Livewire
+// UserManagement component with Livewire
 Route::get('admin/users2', [UserManagement::class, 'render']);
+Route::get('admin/users2/create', [UserManagement::class, 'create']);
+Route::post('admin/users2/{user}', [UserManagement::class, 'store']);
+Route::get('admin/users2/{user}/edit', [UserManagement::class, 'edit']);
+Route::patch('admin/users2/{user}', [UserManagement::class, 'update']);
+Route::delete('admin/users2/{user}', [UserManagement::class, 'destroy']);

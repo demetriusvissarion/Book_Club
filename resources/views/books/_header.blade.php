@@ -18,5 +18,5 @@
 
     </nav>
     @livewireStyles
-    @powerGridStyles
+    {{-- @powerGridStyles --}}
 </header>

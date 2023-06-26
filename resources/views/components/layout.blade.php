@@ -107,6 +107,7 @@
     <x-flash />
 
     {{-- Scripts --}}
+    @livewire('livewire-ui-modal')
     @livewireScripts
     {{-- @powerGridScripts --}}
 </body>
