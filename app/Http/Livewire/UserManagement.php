@@ -89,6 +89,7 @@ class UserManagement extends Component
 
     public function delete($id)
     {
+        dd('reached delete method inside userMangement component');
         if ($id) {
             User::where('id', $id)->delete();
             session()->flash('message', 'User Deleted Successfully.');

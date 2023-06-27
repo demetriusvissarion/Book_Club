@@ -7,6 +7,6 @@
         dd($isOpen);
     @endphp --}}
     @if ($isOpen)
-        @include('livewire._form')
+        @include('livewire._createForm')
     @endif
 </div>

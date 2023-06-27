@@ -10,13 +10,7 @@
                         <div id="main-container" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
                             {{-- Update User Modal --}}
-                            @livewire('update-user')
-
-                            @if (session()->has('message'))
-                                <div class="alert alert-success mt-8">
-                                    {{ session('message') }}
-                                </div>
-                            @endif
+                            {{-- @livewire('update-user') --}}
 
                             <table class="table align-items-center mb-0">
                                 <thead>
@@ -52,15 +46,18 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <button wire:click="edit({{ $user->id }})" {{-- onclick="return confirm('{{ __('Do you want to edit this user? (test)') }}')" --}}
+                                                {{-- <button wire:click="edit({{ $user->id }})"
+                                                    onclick="return confirm('{{ __('Do you want to edit this user? (test)') }}')"
                                                     x-data="{ open: true }" x-show="open"
+                                                    class="text-blue-500 hover:text-blue-600">Edit</button> --}}
+                                                <button wire:click="openModal('update-user')"
                                                     class="text-blue-500 hover:text-blue-600">Edit</button>
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <button wire:click="delete({{ $user->id }})"
-                                                    onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')"
-                                                    class="text-red-500 hover:text-red-600">Delete</button>
+                                                <button {{-- onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')" --}} wire:click="delete({{ $user->id }})"
+                                                    class="text-red-500 hover:text-red-600">Delete
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -83,8 +80,7 @@
                 {{ $users->links('pagination::tailwind') }}
             </div>
 
-
+            @livewireScripts
         </x-setting>
-
     </x-layout>
 @endadmin

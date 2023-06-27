@@ -53,7 +53,7 @@ class CreateUser extends Component
 
     public function closeModal($modalName)
     {
-        // dd('reached openModal inside the component');
+        // dd('reached closeModal inside the component');
         if ($modalName === 'create-user') {
             $this->isOpen = false;
         } else if ($modalName ===  'update-user') {

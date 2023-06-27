@@ -7,7 +7,9 @@ use App\Models\User;
 
 class UpdateUser extends Component
 {
-    public $user_id, $name, $username, $email, $password;
+    public $name, $username, $email, $password;
+
+    static $isOpen = false;
 
     public function render()
     {
@@ -16,7 +18,6 @@ class UpdateUser extends Component
 
     public function mount(User $user)
     {
-        $this->user_id = $user->id;
         $this->name = $user->name;
         $this->username = $user->username;
         $this->email = $user->email;
@@ -38,5 +39,21 @@ class UpdateUser extends Component
         session()->flash('message', 'User updated successfully.');
 
         $this->emit('userUpdate');
+    }
+
+    public function openModal($modalName)
+    {
+        // dd('reached openModal inside the component');
+        if ($modalName ===  'update-user') {
+            $this->isOpen = true;
+        } else return 'Error loading Modal!';
+    }
+
+    public function closeModal($modalName)
+    {
+        // dd('reached closeModal inside the component');
+        if ($modalName ===  'update-user') {
+            $this->isOpen = false;
+        } else return 'Error loading Modal!';
     }
 }

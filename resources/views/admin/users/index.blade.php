@@ -46,9 +46,7 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{ route('users.edit', $user->id) }}"
-                                                class="text-blue-500 hover:text-blue-600"
-                                                class="block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Edit</a>
-
+                                                class="text-blue-500 hover:text-blue-600">Edit</a>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -56,7 +54,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="text-xs text-gray-400"
+                                                <button class="text-red-500 hover:text-red-600"
                                                     onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')">Delete</button>
                                             </form>
                                         </td>
