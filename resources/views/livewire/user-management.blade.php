@@ -48,13 +48,14 @@
                                             <td class="px-1 py-1 whitespace-nowrap text-right text-sm font-medium">
                                                 {{-- Edit User Modal --}}
                                                 <div class="mt-0">
-                                                    @livewire('update-user')
+                                                    @livewire('update-user', $user)
                                                 </div>
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <button wire:click="delete({{ $user->id }})"
-                                                    class="text-red-500 hover:text-red-600">Delete
+                                                    onclick="confirm('Are you sure you want to remove the user?') || event.stopImmediatePropagation()"
+                                                    class="text-red-500 hover:bg-yellow-600 hover:text-white-600">Delete
                                                 </button>
                                             </td>
                                         </tr>

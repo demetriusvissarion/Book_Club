@@ -75,7 +75,7 @@
                     class="text-gray-500 hover:text-gray-600 mr-2">Close</button>
 
                 <button type="button" wire:click.prevent="store"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">Save Changes</button>
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">Save User</button>
             </div>
         </div>
     </div>

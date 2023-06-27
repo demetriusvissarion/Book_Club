@@ -89,28 +89,28 @@ class UserManagement extends Component
     //     }
     // }
 
-    // public function delete($id)
+    public function delete($id)
+    {
+        dd('reached delete method inside userMangement component');
+        if ($id) {
+            User::where('id', $id)->delete();
+            session()->flash('message', 'User Deleted Successfully.');
+        }
+    }
+
+    // public function openEditModal($modalName)
     // {
-    //     dd('reached delete method inside userMangement component');
-    //     if ($id) {
-    //         User::where('id', $id)->delete();
-    //         session()->flash('message', 'User Deleted Successfully.');
-    //     }
+    //     dd('reached openEditModal inside the UserManagement component');
+    //     if ($modalName === 'update-user') {
+    //         $this->isOpen = true;
+    //     } else return 'Error loading Modal!';
     // }
 
-    public function openEditModal($modalName)
-    {
-        dd('reached openEditModal inside the component');
-        if ($modalName === 'update-user') {
-            $this->isOpen = true;
-        } else return 'Error loading Modal!';
-    }
-
-    public function closeEditModal($modalName)
-    {
-        // dd('reached closeEditModal inside the component');
-        if ($modalName ===  'update-user') {
-            $this->isOpen = false;
-        } else return 'Error loading Modal!';
-    }
+    // public function closeEditModal($modalName)
+    // {
+    //     // dd('reached closeEditModal inside the component');
+    //     if ($modalName ===  'update-user') {
+    //         $this->isOpen = false;
+    //     } else return 'Error loading Modal!';
+    // }
 }

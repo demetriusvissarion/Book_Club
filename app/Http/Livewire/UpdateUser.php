@@ -7,7 +7,7 @@ use App\Models\User;
 
 class UpdateUser extends Component
 {
-    public $name, $username, $email, $password;
+    public $name, $username, $email, $password, $user_id, $user;
 
     public $isOpen = false;
 
@@ -26,6 +26,8 @@ class UpdateUser extends Component
 
     public function update()
     {
+        $user = User::find($this->user);
+
         $validatedData = $this->validate([
             'name' => 'required',
             'username' => 'required',
@@ -33,7 +35,6 @@ class UpdateUser extends Component
             'password' => 'required',
         ]);
 
-        $user = User::find($this->user_id);
         $user->update($validatedData);
 
         session()->flash('message', 'User updated successfully.');
@@ -41,12 +42,20 @@ class UpdateUser extends Component
         $this->emit('userUpdate');
     }
 
-    public function openEditModal($modalName)
+    public function openEditModal($modalName, $id)
     {
-        // dd('reached openEditModal inside the component');
+        // dd('reached openEditModal inside the UpdateUser component');
         if ($modalName === 'update-user') {
             $this->isOpen = true;
         } else return 'Error loading Modal!';
+
+        $user = User::where('id', $id)->first();
+        $this->user_id = $id;
+        dd($user);
+        $this->name = $user->name;
+        $this->username = $user->username;
+        $this->email = $user->email;
+        $this->password = $user->password;
     }
 
     public function closeEditModal($modalName)

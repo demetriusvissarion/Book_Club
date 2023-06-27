@@ -1,6 +1,6 @@
 <!-- Update User Modal -->
 <div class="fixed inset-0 overflow-y-auto px-4 py-6 md:py-24 sm:px-0 z-40">
-    <div class="fixed inset-0 transform">
+    <div class="fixed inset-0 transform" data-te-ripple-init data-te-ripple-color="light">
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
 
@@ -19,8 +19,8 @@
                 </button>
             </div>
 
-            <form>
-                <div class="mb-4">
+            <form wire:submit.prevent="update" action="/user" method="POST">
+                <div class="mb-4 text-left">
                     <label for="updateFormControlInput1" class="block text-sm font-medium text-gray-700">Name</label>
                     <input type="text" id="updateFormControlInput1" placeholder="Enter Name"
                         class="form-input mt-1 block w-full" wire:model.defer="name">
@@ -29,7 +29,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 text-left">
                     <label for="updateFormControlInput1"
                         class="block text-sm font-medium text-gray-700">Username</label>
                     <input type="text" id="updateFormControlInput1" placeholder="Enter Username"
@@ -39,7 +39,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 text-left">
                     <label for="updateFormControlInput2" class="block text-sm font-medium text-gray-700">Email
                         address</label>
                     <input type="email" id="updateFormControlInput2" placeholder="Enter Email"
@@ -49,7 +49,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 text-left">
                     <label for="updateFormControlInput1"
                         class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="text" id="updateFormControlInput1" placeholder="Enter Password"
@@ -59,7 +59,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 text-left">
                     <label for="updateFormControlInput1" class="block text-sm font-medium text-gray-700">Confirm
                         password</label>
                     <input type="text" id="updateFormControlInput1" placeholder="Enter Password Again"
@@ -71,10 +71,10 @@
             </form>
 
             <div class="mt-6 flex justify-end">
-                <button type="button" wire:click="closeEditModal('update-user')"
+                <button type="button" wire:click="closeEditModal('update-user)')"
                     class="text-gray-500 hover:text-gray-600 mr-2">Close</button>
 
-                <button type="button" wire:click.prevent="store"
+                <button type="button" wire:click.prevent="update"
                     class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">Save Changes</button>
             </div>
         </div>
