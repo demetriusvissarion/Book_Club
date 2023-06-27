@@ -78,7 +78,11 @@
             </div>
 
             {{-- Pagination --}}
-            {{-- {{ $users->links() }} --}}
+            <div>
+                {{-- {{ $users->links() }} --}}
+                {{ $users->links('pagination::tailwind') }}
+            </div>
+
 
         </x-setting>
 

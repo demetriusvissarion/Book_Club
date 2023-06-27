@@ -1,5 +1,4 @@
 <!-- Create User Modal -->
-{{-- <div x-data="{ isOpen: @entangle('isOpen') }"> --}}
 <div>
     <div class="fixed inset-0 flex items-center justify-center z-50">
         <div class="bg-white w-full max-w-md mx-auto rounded shadow-lg p-6" @click.away="isOpen = false">
@@ -24,11 +23,41 @@
                 </div>
 
                 <div class="mb-4">
+                    <label for="createFormControlInput1"
+                        class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="createFormControlInput1" placeholder="Enter Username"
+                        class="form-input mt-1 block w-full" wire:model="username">
+                    @error('username')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
                     <label for="createFormControlInput2" class="block text-sm font-medium text-gray-700">Email
                         address</label>
                     <input type="email" id="createFormControlInput2" placeholder="Enter Email"
                         class="form-input mt-1 block w-full" wire:model="email">
                     @error('email')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="createFormControlInput1"
+                        class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="text" id="createFormControlInput1" placeholder="Enter Password"
+                        class="form-input mt-1 block w-full" wire:model="password">
+                    @error('password')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="createFormControlInput1" class="block text-sm font-medium text-gray-700">Confirm
+                        password</label>
+                    <input type="text" id="createFormControlInput1" placeholder="Enter Password Again"
+                        class="form-input mt-1 block w-full" wire:model="password">
+                    @error('password')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>

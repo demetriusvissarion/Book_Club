@@ -5,20 +5,21 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Livewire\WithPagination;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class UserManagement extends Component
 {
     use WithPagination;
 
-    public $users, $name, $username, $email, $password;
+    public $name, $username, $email, $password;
     public $updateMode = false;
 
     public function render()
     {
-        $this->users = User::all();
+        // $this->users = User::all();
+        // return view('livewire.user-management');
         return view('livewire.user-management', [
-            'users' => User::paginate(10),
+            'users' => User::latest()->paginate(6),
         ]);
     }
 
