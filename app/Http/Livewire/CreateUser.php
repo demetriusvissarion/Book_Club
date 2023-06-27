@@ -46,8 +46,6 @@ class CreateUser extends Component
         // dd('reached openModal inside the component');
         if ($modalName === 'create-user') {
             $this->isOpen = true;
-        } else if ($modalName ===  'update-user') {
-            $this->isOpen = true;
         } else return 'Error loading Modal!';
     }
 
@@ -55,8 +53,6 @@ class CreateUser extends Component
     {
         // dd('reached closeModal inside the component');
         if ($modalName === 'create-user') {
-            $this->isOpen = false;
-        } else if ($modalName ===  'update-user') {
             $this->isOpen = false;
         } else return 'Error loading Modal!';
     }

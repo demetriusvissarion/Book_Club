@@ -9,7 +9,7 @@ class UpdateUser extends Component
 {
     public $name, $username, $email, $password;
 
-    static $isOpen = false;
+    public $isOpen = false;
 
     public function render()
     {
@@ -41,17 +41,17 @@ class UpdateUser extends Component
         $this->emit('userUpdate');
     }
 
-    public function openModal($modalName)
+    public function openEditModal($modalName)
     {
-        // dd('reached openModal inside the component');
-        if ($modalName ===  'update-user') {
+        // dd('reached openEditModal inside the component');
+        if ($modalName === 'update-user') {
             $this->isOpen = true;
         } else return 'Error loading Modal!';
     }
 
-    public function closeModal($modalName)
+    public function closeEditModal($modalName)
     {
-        // dd('reached closeModal inside the component');
+        // dd('reached closeEditModal inside the component');
         if ($modalName ===  'update-user') {
             $this->isOpen = false;
         } else return 'Error loading Modal!';

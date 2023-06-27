@@ -45,17 +45,15 @@
                                                 </div>
                                             </td>
 
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                {{-- <button wire:click="edit({{ $user->id }})"
-                                                    onclick="return confirm('{{ __('Do you want to edit this user? (test)') }}')"
-                                                    x-data="{ open: true }" x-show="open"
-                                                    class="text-blue-500 hover:text-blue-600">Edit</button> --}}
-                                                <button wire:click="openModal('update-user')"
-                                                    class="text-blue-500 hover:text-blue-600">Edit</button>
+                                            <td class="px-1 py-1 whitespace-nowrap text-right text-sm font-medium">
+                                                {{-- Edit User Modal --}}
+                                                <div class="mt-0">
+                                                    @livewire('update-user')
+                                                </div>
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <button {{-- onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')" --}} wire:click="delete({{ $user->id }})"
+                                                <button wire:click="delete({{ $user->id }})"
                                                     class="text-red-500 hover:text-red-600">Delete
                                                 </button>
                                             </td>
@@ -69,6 +67,8 @@
                         <div class="mt-6">
                             @livewire('create-user')
                         </div>
+
+
 
                     </div>
                 </div>
