@@ -1,10 +1,16 @@
 <!-- Create User Modal -->
-<div>
+<div class="fixed inset-0 overflow-y-auto px-4 py-6 md:py-24 sm:px-0 z-40">
+    <div class="fixed inset-0 transform">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+    </div>
+
     <div class="fixed inset-0 flex items-center justify-center z-50">
         <div class="bg-white w-full max-w-md mx-auto rounded shadow-lg p-6" @click.away="isOpen = false">
             <div class="flex justify-between items-center mb-4">
-                <h5 class="text-lg font-medium">Create New User</h5>
-                <button type="button" class="text-gray-500 hover:text-gray-600" @click="isOpen = false">
+                {{-- <h5 class="text-lg font-medium">Create New User</h5> --}}
+                <h5 class="text-lg font-medium"> </h5>
+                <button type="button" class="text-gray-500 hover:text-gray-600" @click="isOpen = false"
+                    wire:click="closeModal('create-user')">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                         </path>

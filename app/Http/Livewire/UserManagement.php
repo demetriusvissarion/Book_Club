@@ -12,6 +12,7 @@ class UserManagement extends Component
     use WithPagination;
 
     public $name, $username, $email, $password;
+
     public $updateMode = false;
 
     public function render()
