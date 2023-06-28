@@ -33,42 +33,29 @@
 
                     <div class="py-4 px-6">
                         <form>
-                            <div class="mb-4">
-                                <label for="createUserFormControlInput1" class="block text-gray-700">Name</label>
-                                <input type="text" class="mt-1 block w-full" id="createUserFormControlInput1"
-                                    placeholder="Enter Name" wire:model="name">
-                                @error('name')
-                                    <span class="text-danger error">{{ $message }}</span>
-                                @enderror
-                            </div>
+                            <x-form.input name="name" required wire:model="name" />
+                            @error('name')
+                                <span class="text-danger error">{{ $message }}</span>
+                            @enderror
 
-                            <div class="mb-4">
-                                <label for="createUserFormControlInput4" class="block text-gray-700">Username</label>
-                                <input type="text" class="mt-1 block w-full" id="createUserFormControlInput4"
-                                    placeholder="Enter Username" wire:model="username">
-                                @error('username')
-                                    <span class="text-danger error">{{ $message }}</span>
-                                @enderror
-                            </div>
+                            <x-form.input name="username" required wire:model="username" />
+                            @error('username')
+                                <span class="text-danger error">{{ $message }}</span>
+                            @enderror
 
-                            <div class="mb-4">
-                                <label for="createUserFormControlInput2" class="block text-gray-700">Email
-                                    address</label>
-                                <input type="email" class="mt-1 block w-full" id="createUserFormControlInput2"
-                                    wire:model="email" placeholder="Enter Email">
-                                @error('email')
-                                    <span class="text-danger error">{{ $message }}</span>
-                                @enderror
-                            </div>
+                            <x-form.input name="email" type="email" required wire:model="email" />
+                            @error('email')
+                                <span class="text-danger error">{{ $message }}</span>
+                            @enderror
 
-                            <div class="mb-4">
-                                <label for="createUserFormControlInput3" class="block text-gray-700">Password</label>
-                                <input type="password" class="mt-1 block w-full" id="createUserFormControlInput3"
-                                    wire:model="password" placeholder="Enter Password">
-                                @error('password')
-                                    <span class="text-danger error">{{ $message }}</span>
-                                @enderror
-                            </div>
+                            <x-form.input name="password" type="password" autocomplete="new-password" required
+                                wire:model="password" />
+                            @error('password')
+                                <span class="text-danger error">{{ $message }}</span>
+                            @enderror
+
+                            <x-form.input name="confirm password" type="password" autocomplete="confirm-new-password"
+                                required />
                         </form>
                     </div>
                     <div class="py-4 px-6">
