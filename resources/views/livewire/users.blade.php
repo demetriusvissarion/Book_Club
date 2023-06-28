@@ -26,6 +26,7 @@
                             <button wire:click="edit({{ $value->id }})"
                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $value->id }})"
+                                onclick="confirm('Are you sure you want to remove the user? This is permanent and irreversible!') || event.stopImmediatePropagation()"
                                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                         </td>
                     </tr>
