@@ -1,31 +1,32 @@
 <div>
-    <div>
-        @include('livewire.create')
+    <div class="mb-6 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         @include('livewire.update')
         @if (session()->has('message'))
             <div class="bg-green-500 text-white mt-6 p-4 rounded">
                 {{ session('message') }}
             </div>
         @endif
-        <table class="border-collapse mt-5 mb-5">
+        <table class="min-w-full divide-y divide-gray-200">
             <thead>
                 <tr>
                     <th class="px-4 py-2">ID</th>
                     <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Uploads</th>
                     {{-- <th class="px-4 py-2">Email</th> --}}
                     <th class="px-4 py-2">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($users as $value)
+            <tbody class="bg-white divide-y divide-gray-200">
+                @foreach ($users as $user)
                     <tr>
-                        <td class="px-4 py-2">{{ $value->id }}</td>
-                        <td class="px-4 py-2">{{ $value->name }}</td>
-                        {{-- <td class="px-4 py-2">{{ $value->email }}</td> --}}
+                        <td class="px-4 py-2">{{ $user->id }}</td>
+                        <td class="px-4 py-2">{{ $user->name }}</td>
+                        <td class="px-4 py-2">{{ $user->getUploadedBooksCount() }}</td>
+                        {{-- <td class="px-4 py-2">{{ $user->email }}</td> --}}
                         <td class="flex flex-row px-4 py-2">
-                            <button wire:click="edit({{ $value->id }})"
+                            <button wire:click="edit({{ $user->id }})"
                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                            <button wire:click="delete({{ $value->id }})"
+                            <button wire:click="delete({{ $user->id }})"
                                 onclick="confirm('Are you sure you want to remove the user? This is permanent and irreversible!') || event.stopImmediatePropagation()"
                                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                         </td>
@@ -35,6 +36,8 @@
         </table>
 
     </div>
+
+    @include('livewire.create')
 
     {{-- Pagination --}}
     {{-- <div>
