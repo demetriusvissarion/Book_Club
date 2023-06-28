@@ -109,12 +109,4 @@
     </section>
 
     <x-flash />
-
-    {{-- Scripts --}}
-    {{-- @livewireScripts
-    <script type="text/javascript">
-        window.livewire.on('userStore', () => {
-            $('#exampleModal').modal('hide');
-        });
-    </script> --}}
 </body>
