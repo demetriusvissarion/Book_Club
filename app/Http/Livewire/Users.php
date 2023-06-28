@@ -34,6 +34,8 @@ class Users extends Component
 
     public function store()
     {
+        // dd('reached update method inside Users component');
+
         $validatedData = $this->validate([
             'name' => 'required',
             'username' => 'required',
@@ -47,7 +49,7 @@ class Users extends Component
 
         $this->resetInputFields();
 
-        $this->emit('userStore');
+        $this->cancel();
     }
 
     public function edit($id)
@@ -70,7 +72,7 @@ class Users extends Component
 
     public function update()
     {
-        // dd('reached update method inside UserMangement component');
+        // dd('reached update method inside Users component');
         $validatedDate = $this->validate([
             'name' => 'required',
             'username' => 'required',
@@ -94,7 +96,7 @@ class Users extends Component
 
     public function delete($id)
     {
-        // dd('reached delete method inside UserMangement component');
+        // dd('reached delete method inside Users component');
         if ($id) {
             User::where('id', $id)->delete();
             session()->flash('message', 'User Deleted Successfully.');

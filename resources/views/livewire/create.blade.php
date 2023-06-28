@@ -40,6 +40,16 @@
                                     <span class="text-danger error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            <div class="mb-4">
+                                <label for="createUserFormControlInput4" class="block text-gray-700">Username</label>
+                                <input type="text" class="mt-1 block w-full" id="createUserFormControlInput4"
+                                    placeholder="Enter Username" wire:model="username">
+                                @error('username')
+                                    <span class="text-danger error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
                             <div class="mb-4">
                                 <label for="createUserFormControlInput2" class="block text-gray-700">Email
                                     address</label>
@@ -49,6 +59,7 @@
                                     <span class="text-danger error">{{ $message }}</span>
                                 @enderror
                             </div>
+
                             <div class="mb-4">
                                 <label for="createUserFormControlInput3" class="block text-gray-700">Password</label>
                                 <input type="password" class="mt-1 block w-full" id="createUserFormControlInput3"
