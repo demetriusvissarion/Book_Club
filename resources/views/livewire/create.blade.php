@@ -30,6 +30,7 @@
                             </svg>
                         </button>
                     </div>
+
                     <div class="py-4 px-6">
                         <form>
                             <div class="mb-4">
@@ -71,10 +72,11 @@
                         </form>
                     </div>
                     <div class="py-4 px-6">
-                        <button type="button" wire:click.prevent="cancel()">Close</button>
+                        <button type="button" wire:click.prevent="cancel()"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
                         <button type="button" wire:click.prevent="store()"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save
-                            changes</button>
+                            New User</button>
                     </div>
                 </div>
             </div>
