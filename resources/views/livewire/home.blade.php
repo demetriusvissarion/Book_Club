@@ -19,11 +19,6 @@
                 @livewireScripts
 
             </div>
-
-            {{-- Pagination --}}
-            {{-- <div>
-                {{ $users->links('pagination::tailwind') }}
-            </div> --}}
         </x-setting>
     </x-layout>
 @endadmin

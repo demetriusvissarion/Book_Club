@@ -7,7 +7,7 @@
                 {{ session('message') }}
             </div>
         @endif
-        <table class="border-collapse mt-5">
+        <table class="border-collapse mt-5 mb-5">
             <thead>
                 <tr>
                     <th class="px-4 py-2">ID</th>
@@ -33,5 +33,37 @@
             </tbody>
         </table>
 
+    </div>
+
+    {{-- Pagination --}}
+    {{-- <div>
+        {{ $users->links('pagination::tailwind') }}
+    </div> --}}
+    <div class="mt-4 flex justify-center">
+        Showing:
+        <div class="ml-2">
+            <span class="mr-2">{{ $users->firstItem() }}</span>
+            <span class="mr-2">to</span>
+            <span class="mr-2">{{ $users->lastItem() }}</span>
+            <span class="mr-2">of</span>
+            <span class="mr-2">{{ $users->total() }}</span>
+            <span class="mr-2">users</span>
+        </div>
+        <nav role="navigation" aria-label="Pagination Navigation">
+            <ul class="pagination">
+                @foreach ($users->onEachSide(1)->links()->elements as $element)
+                    @foreach ($element as $page => $url)
+                        <li class="mr-1" style="display: inline-block;">
+                            @if ($page === $users->currentPage())
+                                <span class="bg-blue-500 text-white px-4 py-2 rounded-full">{{ $page }}</span>
+                            @else
+                                <a href="{{ $url }}"
+                                    class="text-blue-500 hover:text-blue-600 px-4 py-2 rounded-full">{{ $page }}</a>
+                            @endif
+                        </li>
+                    @endforeach
+                @endforeach
+            </ul>
+        </nav>
     </div>
 </div>
