@@ -1,7 +1,11 @@
 <!-- Modal -->
 @if ($updateMode)
-    <div wire:ignore.self class="modal fade" id="updateModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="fixed inset-0 overflow-y-auto px-4 py-6 md:py-24 sm:px-0 z-40">
+        {{-- div below creates the grey background nehind the modal window --}}
+        <div class="fixed inset-0 transform">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+
         <div class="fixed inset-0 flex items-center justify-center z-50">
             <div class="bg-white w-1/2 mx-auto rounded-lg shadow-lg">
                 <div class="modal-header py-4 px-6">

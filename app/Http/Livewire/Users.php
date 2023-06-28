@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Livewire\WithPagination;
-// use Illuminate\Http\Request;
 
 class Users extends Component
 {
@@ -71,7 +70,7 @@ class Users extends Component
 
     public function update()
     {
-        dd('reached update method inside UserMangement component');
+        // dd('reached update method inside UserMangement component');
         $validatedDate = $this->validate([
             'name' => 'required',
             'username' => 'required',
@@ -95,7 +94,7 @@ class Users extends Component
 
     public function delete($id)
     {
-        dd('reached delete method inside UserMangement component');
+        // dd('reached delete method inside UserMangement component');
         if ($id) {
             User::where('id', $id)->delete();
             session()->flash('message', 'User Deleted Successfully.');
