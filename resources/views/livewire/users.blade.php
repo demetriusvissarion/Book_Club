@@ -42,9 +42,6 @@
     @include('livewire.create')
 
     {{-- Pagination --}}
-    {{-- <div>
-        {{ $users->links('pagination::tailwind') }}
-    </div> --}}
     <div class="mt-4 flex justify-center">
         Showing:
         <div class="ml-2">

@@ -6,17 +6,20 @@
 
                 @livewireStyles
 
+                {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
 
                 <div class="p-6">
                     @if (session()->has('message'))
-                        <div class="bg-green-500 text-white mb-4 p-4 rounded">
-                            {{ session('message') }}
+                        <div>
+                            {{ session()->get('message') }}
                         </div>
                     @endif
-                    @livewire('users')
                 </div>
 
+                @livewire('users')
+
                 @livewireScripts
+
 
             </div>
         </x-setting>

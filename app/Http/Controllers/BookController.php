@@ -28,7 +28,7 @@ class BookController extends Controller
         $books = $query->with(['category', 'author'])
             ->latest()
             ->filter($request->only('search', 'author', 'category'))
-            ->paginate(3);
+            ->paginate(6);
 
         return view('books.index', [
             'books' => $books,

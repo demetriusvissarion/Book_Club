@@ -44,7 +44,7 @@ class AdminBooksController extends Controller
     public function update(Book $book, Request $request)
     {
         $data = $request->except('_token', '_method', 'thumbnail');
-        $data['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        // $data['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         $book->update($data);
 
         return redirect('/admin/adminBooks')->with('success', 'Book Updated!');

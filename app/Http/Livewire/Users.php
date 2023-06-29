@@ -14,7 +14,9 @@ class Users extends Component
     public $createMode = false;
     public $updateMode = false;
 
-    static $isOpen = false;
+    // static $isOpen = false;
+
+    protected $listeners = ['flashMessageTimeout'];
 
     public function render()
     {
@@ -50,6 +52,8 @@ class Users extends Component
         $this->resetInputFields();
 
         $this->cancel();
+
+        $this->emit('flashMessageTimeout');
     }
 
     public function edit($id)
@@ -89,9 +93,19 @@ class Users extends Component
                 'password' => $this->password,
             ]);
             $this->updateMode = false;
+
+            // Flash message
             session()->flash('message', 'User Updated Successfully.');
+
             $this->resetInputFields();
+
+            $this->emit('flashMessageTimeout');
         }
+    }
+
+    public function flashMessageTimeout()
+    {
+        $this->emit('hideFlashMessage');
     }
 
     public function delete($id)
@@ -101,6 +115,8 @@ class Users extends Component
             User::where('id', $id)->delete();
             session()->flash('message', 'User Deleted Successfully.');
         }
+
+        $this->emit('flashMessageTimeout');
     }
 
     public function openCreateModal()
