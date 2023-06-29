@@ -32,7 +32,6 @@ Route::get('register/{user}/edit', [RegisterController::class, 'edit'])->name('r
 Route::patch('register/{user}', [RegisterController::class, 'update'])->name('register.update');
 Route::delete('register/{user}', [RegisterController::class, 'destroy'])->name('register.destroy');
 
-
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
