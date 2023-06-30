@@ -11,34 +11,16 @@
                     </path>
                 </g>
             </svg>
-            <p class="z-0">Back to Books</p>
+            <p class="z-0">Back to Books Management</p>
         </a>
     </div>
-
-    @php
-        $book = \App\Models\Book::find($book->id);
-        $user = \App\Models\User::find($book->user_id);
-    @endphp
 
     <x-setting :heading="'Edit Book: ' . $book->title">
         <form method="POST" action="/userBooks/{{ $book->id }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
-            {{-- <x-form.field>
-                <x-form.label name="author" />
-
-                <select name="user_id" id="user_id" required>
-                    @foreach (\App\Models\User::all() as $user)
-                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                            {{ ucwords($user->name) }}</option>
-                    @endforeach
-                </select>
-                <x-form.error name="user_id" />
-            </x-form.field> --}}
-
             <x-form.input name="title" :value="old('title', $book->title)" required />
-            {{-- <x-form.input name="slug" :value="old('slug', $book->slug)" required /> --}}
 
             <div class="flex mt-6">
                 <div class="flex-1">
