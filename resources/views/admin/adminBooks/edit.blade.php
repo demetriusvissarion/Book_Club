@@ -24,11 +24,14 @@
                 <x-form.label name="author" />
 
                 <select name="user_id" id="user_id" required>
-                    @foreach (\App\Models\User::all() as $user)
-                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                            {{ ucwords($user->name) }}</option>
-                    @endforeach
+                    @php
+                        $book = \App\Models\Book::find($book->id);
+                        $user = \App\Models\User::find($book->user_id);
+                    @endphp
+                    <option value="{{ $user->id }}" selected>
+                        {{ ucwords($user->name) }}</option>
                 </select>
+
                 <x-form.error name="user_id" />
             </x-form.field>
 

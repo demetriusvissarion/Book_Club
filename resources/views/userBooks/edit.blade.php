@@ -15,6 +15,11 @@
         </a>
     </div>
 
+    @php
+        $book = \App\Models\Book::find($book->id);
+        $user = \App\Models\User::find($book->user_id);
+    @endphp
+
     <x-setting :heading="'Edit Book: ' . $book->title">
         <form method="POST" action="/userBooks/{{ $book->id }}" enctype="multipart/form-data">
             @csrf
@@ -44,7 +49,7 @@
                     <x-form.input name="pdf" type="file" :value="old('pdf', $book->pdf)" />
                 </div>
 
-                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="admin dashboard book thumbnail"
+                <img src="{{ asset('storage/' . $book->thumbnail) }}" alt="user dashboard book thumbnail"
                     class="rounded-xl ml-6" width="50">
             </div>
 

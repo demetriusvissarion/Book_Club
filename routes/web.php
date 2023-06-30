@@ -35,6 +35,7 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest')-
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
+// User dashboard
 Route::middleware('can:users')->group(function () {
     Route::resource('userBooks', UsersBooksController::class)->except('show');
 });
