@@ -77,6 +77,9 @@
                             <x-dropdown-item href="/register/{{ auth()->user()->id }}/edit" :active="request()->is('register/{{ auth()->user()->id }}/edit')">My Account
                             </x-dropdown-item>
 
+                            <x-dropdown-item href="/userBooks" :active="request()->is('userBooks')">My Books
+                            </x-dropdown-item>
+
                             <x-dropdown-item href="/books/create" :active="request()->is('books/create')">New Book
                             </x-dropdown-item>
                         @endusers

@@ -3,8 +3,7 @@
 use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\AdminCategoriesController;
 use App\Http\Controllers\AdminUsersController;
-use App\Http\Controllers\AdminUsers2Controller;
-use App\Http\Livewire\UserManagement;
+use App\Http\Controllers\UsersBooksController;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
@@ -36,6 +35,10 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest')-
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
+Route::middleware('can:users')->group(function () {
+    Route::resource('userBooks', UsersBooksController::class)->except('show');
+});
+
 // Admin Section (access restricted to admin)
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/adminBooks', AdminBooksController::class)->except('show', 'edit', 'update', 'destroy');
@@ -47,5 +50,5 @@ Route::middleware('can:admin')->group(function () {
     Route::resource('admin/users', AdminUsersController::class)->except('show');
 });
 
-// UserManagement component with Livewire
+// Users component with Livewire
 Route::view('users', 'livewire.home');
