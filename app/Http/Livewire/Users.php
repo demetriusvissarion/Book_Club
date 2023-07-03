@@ -18,11 +18,13 @@ class Users extends Component
 
     protected $listeners = ['flashMessageTimeout'];
 
+    public $search;
+
     public function render()
     {
         // $this->users = User::all();
         return view('livewire.users', [
-            'users' => User::latest()->paginate(6),
+            'users' => User::where('name', 'like', '%' . $this->search . '%')->latest()->paginate(6)
         ]);
     }
 
