@@ -28,6 +28,7 @@
                 <tr>
                     <th class="px-4 py-2">ID</th>
                     <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Email</th>
                     <th class="px-4 py-2">Uploads</th>
                     {{-- <th class="px-4 py-2">Email</th> --}}
                     <th class="px-4 py-2">Action</th>
@@ -38,6 +39,7 @@
                     <tr>
                         <td class="px-4 py-2">{{ $user->id }}</td>
                         <td class="px-4 py-2">{{ $user->name }}</td>
+                        <td class="px-4 py-2">{{ $user->email }}</td>
                         <td class="px-4 py-2">{{ $user->getUploadedBooksCount() }}</td>
                         {{-- <td class="px-4 py-2">{{ $user->email }}</td> --}}
                         <td class="flex flex-row px-4 py-2">
