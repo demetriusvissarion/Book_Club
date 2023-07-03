@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -85,7 +84,7 @@ class BookController extends Controller
         return view('books.edit', ['book' => $book]);
     }
 
-    public function update(Book $book)
+    public function update(Book $book, Request $request)
     {
         $attributes = $this->validateBook($book);
 
@@ -115,7 +114,7 @@ class BookController extends Controller
             return response()->json(['status_message' => 'Unathorised'], 401);
         }
 
-        return redirect('/books')->with('success', 'Book Deleted!');
+        return redirect('/')->with('success', 'Book Deleted!');
     }
 
     protected function validateBook(?Book $book = null): array

@@ -50,6 +50,16 @@
                             </tbody>
                         </table>
                     </div>
+
+                    {{-- New Book --}}
+                    <form method="GET" action="/admin/adminBooks/create" enctype="multipart/form-data">
+                        @csrf
+
+                        <x-form.button type="submit" class="text-xs font-bold uppercase ml-4">
+                            Add New Book
+                        </x-form.button>
+                    </form>
+
                 </div>
             </div>
         </div>

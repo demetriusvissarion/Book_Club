@@ -37,7 +37,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 // User dashboard
 Route::middleware('can:users')->group(function () {
-    Route::resource('userBooks', UsersBooksController::class)->except('show');
+    Route::resource('userBooks', UsersBooksController::class)->except('show', 'update', 'destroy');
 });
 
 // Admin Section (access restricted to admin)

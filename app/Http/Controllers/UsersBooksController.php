@@ -9,6 +9,11 @@ use Illuminate\Validation\Rule;
 
 class UsersBooksController extends Controller
 {
+    public function __construct()
+    {
+        // every function under this controller must use the auth middleware except for the index function
+        $this->middleware('auth')->except('index', 'destroy');
+    }
     public function index()
     {
         $user = Auth::user();
@@ -17,68 +22,72 @@ class UsersBooksController extends Controller
         return view('userBooks.index', compact('books'));
     }
 
-    public function create()
-    {
-        return view('userBooks.create');
-    }
+    // public function create()
+    // {
+    //     return view('userBooks.create');
+    // }
 
-    public function store(Request $request)
-    {
-        $attributes = [
-            'user_id' => $request->input('user_id'),
-            'category_id' => $request->input('category_id'),
-            'slug' => $request->input('slug'),
-            'title' => $request->input('title'),
-            'excerpt' => $request->input('excerpt'),
-            'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
-            'pdf' => $request->file('pdf')->store('pdf'),
-        ];
+    // public function store(Request $request)
+    // {
+    //     $attributes = [
+    //         'user_id' => $request->input('user_id'),
+    //         'category_id' => $request->input('category_id'),
+    //         'slug' => $request->input('slug'),
+    //         'title' => $request->input('title'),
+    //         'excerpt' => $request->input('excerpt'),
+    //         'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
+    //         'pdf' => $request->file('pdf')->store('pdf'),
+    //     ];
 
-        Book::create($attributes);
+    //     Book::create($attributes);
 
-        return redirect('/')->with('success', 'Book Published!');
-    }
+    //     return redirect('/')->with('success', 'Book Published!');
+    // }
 
-    public function edit(Book $book)
-    {
-        return view('userBooks.edit', ['book' => $book]);
-    }
+    // public function edit(Book $book)
+    // {
+    //     return view('userBooks.edit', ['book' => $book]);
+    // }
 
-    public function update(Book $book, Request $request)
-    {
-        $attributes = $this->validateBook($book);
+    // public function update(Book $book, Request $request)
+    // {
+    //     $attributes = $this->validateBook($book);
 
-        if ($attributes['thumbnail'] ?? false) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        }
+    //     if ($attributes['thumbnail'] ?? false) {
+    //         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+    //     }
 
-        if ($attributes['pdf'] ?? false) {
-            $attributes['pdf'] = request()->file('pdf')->store('pdf');
-        }
+    //     if ($attributes['pdf'] ?? false) {
+    //         $attributes['pdf'] = request()->file('pdf')->store('pdf');
+    //     }
 
-        $book->update($attributes);
+    //     $book->update($attributes);
 
-        return redirect('/userBooks')->with('success', 'Book Updated!');
-    }
+    //     return redirect('/userBooks')->with('success', 'Book Updated!');
+    // }
 
-    public function destroy(Book $book)
-    {
-        $book->delete();
+    // public function destroy(Book $book)
+    // {
+    //     if ($book->user_id === Auth::user()->id)
+    //         $book->delete();
+    //     else {
+    //         return response()->json(['status_message' => 'Unathorised'], 401);
+    //     }
 
-        return redirect('/userBooks')->with('success', 'Book Deleted!');
-    }
+    //     return redirect('/userBooks')->with('success', 'Book Deleted!');
+    // }
 
-    protected function validateBook(?Book $book = null): array
-    {
-        $book ??= new Book(); // if there is a book use it if not create a new one
+    // protected function validateBook(?Book $book = null): array
+    // {
+    //     $book ??= new Book(); // if there is a book use it if not create a new one
 
-        return request()->validate([
-            'title' => 'required',
-            'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
-            'pdf' => $book->exists ? ['file'] : ['required', 'file'],
-            'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
-            'excerpt' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')],
-        ]);
-    }
+    //     return request()->validate([
+    //         'title' => 'required',
+    //         'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
+    //         'pdf' => $book->exists ? ['file'] : ['required', 'file'],
+    //         'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
+    //         'excerpt' => 'required',
+    //         'category_id' => ['required', Rule::exists('categories', 'id')],
+    //     ]);
+    // }
 }
