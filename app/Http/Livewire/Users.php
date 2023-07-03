@@ -22,9 +22,10 @@ class Users extends Component
 
     public function render()
     {
-        // $this->users = User::all();
         return view('livewire.users', [
-            'users' => User::where('name', 'like', '%' . $this->search . '%')->latest()->paginate(6)
+            'users' => User::where(function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%')->orwhere('email', 'like', '%' . $this->search . '%');
+            })->latest()->paginate(6)
         ]);
     }
 
