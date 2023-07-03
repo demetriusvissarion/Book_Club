@@ -43,8 +43,9 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="/userBooks/{{ $book->id }}/edit"
-                                                class="text-blue-500 hover:text-blue-600">Edit</a>
+                                            <a href="/books/{{ $book->id }}/edit"
+                                                class="text-blue-500 hover:text-blue-600" :books="$books"
+                                                :book="$book">Edit</a>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

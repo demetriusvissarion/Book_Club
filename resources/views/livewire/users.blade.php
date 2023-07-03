@@ -1,11 +1,13 @@
 <div>
     <div class="mb-6 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
+        {{-- Flash Message --}}
         @if (session()->has('message'))
             <div class="bg-green-500 text-white mt-6 p-4 rounded">
                 {{ session('message') }}
             </div>
         @endif
+
         <table class="min-w-full divide-y divide-gray-200">
             <thead>
                 <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UsersBooksController extends Controller
 {
@@ -26,7 +27,7 @@ class UsersBooksController extends Controller
         $attributes = [
             'user_id' => $request->input('user_id'),
             'category_id' => $request->input('category_id'),
-            // 'slug' => $request->input('slug'),
+            'slug' => $request->input('slug'),
             'title' => $request->input('title'),
             'excerpt' => $request->input('excerpt'),
             'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
@@ -45,9 +46,17 @@ class UsersBooksController extends Controller
 
     public function update(Book $book, Request $request)
     {
-        $data = $request->except('_token', '_method', 'thumbnail');
-        // $data['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        $book->update($data);
+        $attributes = $this->validateBook($book);
+
+        if ($attributes['thumbnail'] ?? false) {
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        }
+
+        if ($attributes['pdf'] ?? false) {
+            $attributes['pdf'] = request()->file('pdf')->store('pdf');
+        }
+
+        $book->update($attributes);
 
         return redirect('/userBooks')->with('success', 'Book Updated!');
     }
@@ -57,5 +66,19 @@ class UsersBooksController extends Controller
         $book->delete();
 
         return redirect('/userBooks')->with('success', 'Book Deleted!');
+    }
+
+    protected function validateBook(?Book $book = null): array
+    {
+        $book ??= new Book(); // if there is a book use it if not create a new one
+
+        return request()->validate([
+            'title' => 'required',
+            'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
+            'pdf' => $book->exists ? ['file'] : ['required', 'file'],
+            'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
+            'excerpt' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+        ]);
     }
 }

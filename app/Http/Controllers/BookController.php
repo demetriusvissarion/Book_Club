@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -48,13 +50,20 @@ class BookController extends Controller
         return view('books.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Book::create(array_merge($this->validateBook(), [
-            'user_id' => request()->user()->id,
-            'thumbnail' => request()->file('thumbnail')->store('thumbnails'),
-            'pdf' => request()->file('pdf')->store('pdf'),
-        ]));
+        // dd('reached BookController store method');
+        $attributes = [
+            'user_id' => Auth::id(),
+            'category_id' => $request->input('category_id'),
+            'slug' => Str::random(6),
+            'title' => $request->input('title'),
+            'excerpt' => $request->input('excerpt'),
+            'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
+            'pdf' => $request->file('pdf')->store('pdf'),
+        ];
+
+        Book::create($attributes);
 
         return redirect('/')->with('success', 'Book Published!');
     }
