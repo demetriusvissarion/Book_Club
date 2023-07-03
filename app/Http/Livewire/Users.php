@@ -20,6 +20,11 @@ class Users extends Component
 
     public $search;
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         return view('livewire.users', [
