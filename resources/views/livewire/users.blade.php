@@ -26,9 +26,22 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead>
                 <tr>
-                    <th class="px-4 py-2">ID</th>
-                    <th class="px-4 py-2">Name</th>
-                    <th class="px-4 py-2">Email</th>
+                    {{-- <th class="px-4 py-2">ID</th> --}}
+
+                    <th class="px-4 py-2">
+                        <div class="flex items-center">
+                            <button wire:click="sortby('name')" class="font-bold">Name</button>
+                            <span>icon</span>
+                        </div>
+                    </th>
+
+                    <th class="px-4 py-2">
+                        <div class="flex items-center">
+                            <button wire:click="sortby('email')" class="font-bold">Email</button>
+                            <span>icon</span>
+                        </div>
+                    </th>
+
                     <th class="px-4 py-2">Uploads</th>
                     {{-- <th class="px-4 py-2">Email</th> --}}
                     <th class="px-4 py-2">Action</th>
@@ -37,7 +50,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($users as $user)
                     <tr>
-                        <td class="px-4 py-2">{{ $user->id }}</td>
+                        {{-- <td class="px-4 py-2">{{ $user->id }}</td> --}}
                         <td class="px-4 py-2">{{ $user->name }}</td>
                         <td class="px-4 py-2">{{ $user->email }}</td>
                         <td class="px-4 py-2">{{ $user->getUploadedBooksCount() }}</td>

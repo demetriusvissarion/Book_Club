@@ -19,6 +19,21 @@ class Users extends Component
     protected $listeners = ['flashMessageTimeout'];
 
     public $search;
+    public $sortField;
+    public $sortAsc = true;
+
+    protected $queryString = ['search', 'sortAsc', 'sortField'];
+
+    public function sortby($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        };
+
+        $this->sortField = $field;
+    }
 
     public function updatingSearch()
     {
@@ -30,7 +45,9 @@ class Users extends Component
         return view('livewire.users', [
             'users' => User::where(function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')->orwhere('email', 'like', '%' . $this->search . '%');
-            })->latest()->paginate(6)
+            })->when($this->sortField, function ($query) {
+                $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+            })->paginate(6),
         ]);
     }
 
@@ -68,7 +85,7 @@ class Users extends Component
     {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
-        $this->user_id = $id;
+        // $this->user_id = $id;
         $this->name = $user->name;
         $this->username = $user->username;
         $this->email = $user->email;
