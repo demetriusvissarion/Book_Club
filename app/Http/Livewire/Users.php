@@ -97,12 +97,14 @@ class Users extends Component
         $this->resetInputFields();
     }
 
-    public function update()
+    public function update($user_id)
     {
         // dd('reached update method inside Users component');
 
-        if ($this->user_id) {
-            $user = User::find($this->user_id);
+        // dd($user_id);
+
+        if ($user_id) {
+            $user = User::find($user_id);
             $user->update([
                 'name' => $this->name,
                 'username' => $this->username,
