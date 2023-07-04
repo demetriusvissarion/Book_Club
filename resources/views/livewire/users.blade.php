@@ -26,7 +26,7 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead>
                 <tr>
-                    {{-- <th class="px-4 py-2">ID</th> --}}
+                    <th class="px-4 py-2">ID</th>
 
                     <th class="px-4 py-2">
                         <div class="flex items-center">
@@ -49,6 +49,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($users as $user)
                     <tr>
+                        <td class="px-4 py-2">{{ $user->id }}</td>
                         <td class="px-4 py-2">{{ $user->name }}</td>
                         <td class="px-4 py-2">{{ $user->email }}</td>
                         <td class="px-4 py-2">{{ $user->getUploadedBooksCount() }}</td>
@@ -59,6 +60,9 @@
                                 <button wire:click="delete({{ $user->id }})"
                                     onclick="confirm('Are you sure you want to remove the user? This is permanent and irreversible!') || event.stopImmediatePropagation()"
                                     class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                            @else
+                                <button class="bg-gray-300 text-white font-bold py-2 px-4 rounded">Edit</button>
+                                <button class="bg-gray-300 text-white font-bold py-2 px-4 rounded">Delete</button>
                             @endif
                         </td>
                     </tr>
