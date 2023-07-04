@@ -57,7 +57,7 @@ class AdminUsersController extends Controller
 
         session()->flash('success', 'User account has been updated.');
 
-        return back();
+        return redirect('/admin/users');
     }
 
     public function destroy(User $user)

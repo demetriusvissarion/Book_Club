@@ -14,8 +14,6 @@ class Users extends Component
     public $createMode = false;
     public $updateMode = false;
 
-    // static $isOpen = false;
-
     protected $listeners = ['flashMessageTimeout'];
 
     public $search;
@@ -102,12 +100,6 @@ class Users extends Component
     public function update()
     {
         // dd('reached update method inside Users component');
-        $validatedDate = $this->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required', // 'required|password',
-        ]);
 
         if ($this->user_id) {
             $user = User::find($this->user_id);

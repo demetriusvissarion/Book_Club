@@ -44,20 +44,22 @@
                                             </div>
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('users.edit', $user->id) }}"
-                                                class="text-blue-500 hover:text-blue-600">Edit</a>
-                                        </td>
+                                        @if ($user->id !== 1)
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="{{ route('users.edit', $user->id) }}"
+                                                    class="text-blue-500 hover:text-blue-600">Edit</a>
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <form method="POST" action="{{ route('users.destroy', $user->id) }}">
-                                                @csrf
-                                                @method('DELETE')
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                                <button class="text-red-500 hover:text-red-600"
-                                                    onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')">Delete</button>
-                                            </form>
-                                        </td>
+                                                    <button class="text-red-500 hover:text-red-600"
+                                                        onclick="return confirm('{{ __('Are you sure you want to delete this user? It will be permanent.') }}')">Delete</button>
+                                                </form>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
