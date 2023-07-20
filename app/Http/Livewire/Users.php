@@ -98,6 +98,7 @@ class Users extends Component
     }
 
     // dd('reached update method inside Users component');
+    // dd($user->id);
     public function update()
     {
         // dd($this->user_id);

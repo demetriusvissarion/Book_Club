@@ -1,7 +1,7 @@
 {
-    "name": "laravel/bookclub",
+    "name": "laravel/laravel",
     "type": "project",
-    "description": "Using the Laravel Framework to create a Book CLub.",
+    "description": "The Laravel Framework.",
     "keywords": [
         "framework",
         "laravel"
