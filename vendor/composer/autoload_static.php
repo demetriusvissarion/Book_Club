@@ -150,6 +150,7 @@ class ComposerStaticInit2960a3ab7863ebdc76a16e155bfc8072
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
             'Laravel\\Breeze\\' => 15,
+            'Laracasts\\Cypress\\' => 18,
         ),
         'J' => 
         array (
@@ -512,6 +513,10 @@ class ComposerStaticInit2960a3ab7863ebdc76a16e155bfc8072
         array (
             0 => __DIR__ . '/..' . '/laravel/breeze/src',
         ),
+        'Laracasts\\Cypress\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laracasts/cypress/src',
+        ),
         'JmesPath\\' => 
         array (
             0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
@@ -673,6 +678,7 @@ class ComposerStaticInit2960a3ab7863ebdc76a16e155bfc8072
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
         'App\\Http\\Controllers\\SessionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SessionsController.php',
+        'App\\Http\\Controllers\\UsersBooksController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersBooksController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\Users' => __DIR__ . '/../..' . '/app/Http/Livewire/Users.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -698,6 +704,7 @@ class ComposerStaticInit2960a3ab7863ebdc76a16e155bfc8072
         'App\\View\\Components\\AuthorDropdown' => __DIR__ . '/../..' . '/app/View/Components/AuthorDropdown.php',
         'App\\View\\Components\\CategoryDropdown' => __DIR__ . '/../..' . '/app/View/Components/CategoryDropdown.php',
         'App\\View\\Components\\Layouts\\App' => __DIR__ . '/../..' . '/app/View/Components/Layouts/App.php',
+        'App\\View\\Components\\SortIcon' => __DIR__ . '/../..' . '/app/View/Components/SortIcon.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Aws\\ACMPCA\\ACMPCAClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/ACMPCAClient.php',
         'Aws\\ACMPCA\\Exception\\ACMPCAException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/Exception/ACMPCAException.php',
@@ -4326,6 +4333,9 @@ class ComposerStaticInit2960a3ab7863ebdc76a16e155bfc8072
         'JmesPath\\TreeCompiler' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/TreeCompiler.php',
         'JmesPath\\TreeInterpreter' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/TreeInterpreter.php',
         'JmesPath\\Utils' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/Utils.php',
+        'Laracasts\\Cypress\\Controllers\\CypressController' => __DIR__ . '/..' . '/laracasts/cypress/src/Controllers/CypressController.php',
+        'Laracasts\\Cypress\\CypressBoilerplateCommand' => __DIR__ . '/..' . '/laracasts/cypress/src/CypressBoilerplateCommand.php',
+        'Laracasts\\Cypress\\CypressServiceProvider' => __DIR__ . '/..' . '/laracasts/cypress/src/CypressServiceProvider.php',
         'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
         'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
         'Laravel\\Breeze\\Console\\InstallsApiStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsApiStack.php',

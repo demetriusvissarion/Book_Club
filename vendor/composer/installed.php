@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8eb9e1ecabc4eb92c44dee581ff67de28cb53ad5',
+        'reference' => '8f17a641d1ef7695667ea9e97f865052607423ca',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -433,6 +433,15 @@
                 0 => '*',
             ),
         ),
+        'laracasts/cypress' => array(
+            'pretty_version' => '3.0.1',
+            'version' => '3.0.1.0',
+            'reference' => 'dd4e61188d4edaf65ffa18851a5df38d0fa0619a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laracasts/cypress',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'laravel/breeze' => array(
             'pretty_version' => 'v1.21.0',
             'version' => '1.21.0.0',
@@ -454,7 +463,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8eb9e1ecabc4eb92c44dee581ff67de28cb53ad5',
+            'reference' => '8f17a641d1ef7695667ea9e97f865052607423ca',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
