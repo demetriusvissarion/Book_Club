@@ -1,0 +1,537 @@
+{
+  "debugbar.openhandler": {
+    "name": "debugbar.openhandler",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@handle",
+    "uri": "_debugbar/open",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.clockwork": {
+    "name": "debugbar.clockwork",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@clockwork",
+    "uri": "_debugbar/clockwork/{id}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.assets.css": {
+    "name": "debugbar.assets.css",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\AssetController@css",
+    "uri": "_debugbar/assets/stylesheets",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.assets.js": {
+    "name": "debugbar.assets.js",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\AssetController@js",
+    "uri": "_debugbar/assets/javascript",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "debugbar.cache.delete": {
+    "name": "debugbar.cache.delete",
+    "domain": null,
+    "action": "Barryvdh\\Debugbar\\Controllers\\CacheController@delete",
+    "uri": "_debugbar/cache/{key}/{tags?}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "cypress.factory": {
+    "name": "cypress.factory",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@factory",
+    "uri": "__cypress__/factory",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.login": {
+    "name": "cypress.login",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@login",
+    "uri": "__cypress__/login",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.logout": {
+    "name": "cypress.logout",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@logout",
+    "uri": "__cypress__/logout",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.artisan": {
+    "name": "cypress.artisan",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@artisan",
+    "uri": "__cypress__/artisan",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.run-php": {
+    "name": "cypress.run-php",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@runPhp",
+    "uri": "__cypress__/run-php",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.csrf-token": {
+    "name": "cypress.csrf-token",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@csrfToken",
+    "uri": "__cypress__/csrf_token",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "cypress.routes": {
+    "name": "cypress.routes",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@routes",
+    "uri": "__cypress__/routes",
+    "method": [
+      "POST"
+    ]
+  },
+  "cypress.current-user": {
+    "name": "cypress.current-user",
+    "domain": null,
+    "action": "Laracasts\\Cypress\\Controllers\\CypressController@currentUser",
+    "uri": "__cypress__/current-user",
+    "method": [
+      "POST"
+    ]
+  },
+  "sanctum.csrf-cookie": {
+    "name": "sanctum.csrf-cookie",
+    "domain": null,
+    "action": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+    "uri": "sanctum/csrf-cookie",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "": {
+    "name": null,
+    "domain": null,
+    "action": "\\Illuminate\\Routing\\ViewController",
+    "uri": "users",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "livewire.message": {
+    "name": "livewire.message",
+    "domain": null,
+    "action": "Livewire\\Controllers\\HttpConnectionHandler",
+    "uri": "livewire/message/{name}",
+    "method": [
+      "POST"
+    ]
+  },
+  "livewire.message-localized": {
+    "name": "livewire.message-localized",
+    "domain": null,
+    "action": "Livewire\\Controllers\\HttpConnectionHandler",
+    "uri": "{locale}/livewire/message/{name}",
+    "method": [
+      "POST"
+    ]
+  },
+  "livewire.upload-file": {
+    "name": "livewire.upload-file",
+    "domain": null,
+    "action": "Livewire\\Controllers\\FileUploadHandler@handle",
+    "uri": "livewire/upload-file",
+    "method": [
+      "POST"
+    ]
+  },
+  "livewire.preview-file": {
+    "name": "livewire.preview-file",
+    "domain": null,
+    "action": "Livewire\\Controllers\\FilePreviewHandler@handle",
+    "uri": "livewire/preview-file/{filename}",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "ignition.healthCheck": {
+    "name": "ignition.healthCheck",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\HealthCheckController",
+    "uri": "_ignition/health-check",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "ignition.executeSolution": {
+    "name": "ignition.executeSolution",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\ExecuteSolutionController",
+    "uri": "_ignition/execute-solution",
+    "method": [
+      "POST"
+    ]
+  },
+  "ignition.updateConfig": {
+    "name": "ignition.updateConfig",
+    "domain": null,
+    "action": "Spatie\\LaravelIgnition\\Http\\Controllers\\UpdateConfigController",
+    "uri": "_ignition/update-config",
+    "method": [
+      "POST"
+    ]
+  },
+  "home": {
+    "name": "home",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@index",
+    "uri": "/",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "books.show": {
+    "name": "books.show",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@show",
+    "uri": "books/{book}/show",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "books.index": {
+    "name": "books.index",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@index",
+    "uri": "books",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "books.create": {
+    "name": "books.create",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@create",
+    "uri": "books/create",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "books.store": {
+    "name": "books.store",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@store",
+    "uri": "books",
+    "method": [
+      "POST"
+    ]
+  },
+  "books.edit": {
+    "name": "books.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@edit",
+    "uri": "books/{book}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "books.update": {
+    "name": "books.update",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@update",
+    "uri": "books/{book}",
+    "method": [
+      "PUT",
+      "PATCH"
+    ]
+  },
+  "books.userDestroy": {
+    "name": "books.userDestroy",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\BookController@userDestroy",
+    "uri": "books/{book}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "register.edit": {
+    "name": "register.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RegisterController@edit",
+    "uri": "register/{user}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "register.update": {
+    "name": "register.update",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RegisterController@update",
+    "uri": "register/{user}",
+    "method": [
+      "PATCH"
+    ]
+  },
+  "register.destroy": {
+    "name": "register.destroy",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\RegisterController@destroy",
+    "uri": "register/{user}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "login": {
+    "name": "login",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\SessionsController@create",
+    "uri": "login",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "userBooks.index": {
+    "name": "userBooks.index",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\UsersBooksController@index",
+    "uri": "userBooks",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "userBooks.create": {
+    "name": "userBooks.create",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\UsersBooksController@create",
+    "uri": "userBooks/create",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "userBooks.store": {
+    "name": "userBooks.store",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\UsersBooksController@store",
+    "uri": "userBooks",
+    "method": [
+      "POST"
+    ]
+  },
+  "userBooks.edit": {
+    "name": "userBooks.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\UsersBooksController@edit",
+    "uri": "userBooks/{userBook}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "adminBooks.index": {
+    "name": "adminBooks.index",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@index",
+    "uri": "admin/adminBooks",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "adminBooks.create": {
+    "name": "adminBooks.create",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@create",
+    "uri": "admin/adminBooks/create",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "adminBooks.store": {
+    "name": "adminBooks.store",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@store",
+    "uri": "admin/adminBooks",
+    "method": [
+      "POST"
+    ]
+  },
+  "adminBooks.edit": {
+    "name": "adminBooks.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@edit",
+    "uri": "admin/adminBooks/{book}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "adminBooks.update": {
+    "name": "adminBooks.update",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@update",
+    "uri": "admin/adminBooks/{book}",
+    "method": [
+      "PATCH"
+    ]
+  },
+  "adminBooks.destroy": {
+    "name": "adminBooks.destroy",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminBooksController@destroy",
+    "uri": "admin/adminBooks/{book}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "categories.index": {
+    "name": "categories.index",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@index",
+    "uri": "admin/categories",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "categories.create": {
+    "name": "categories.create",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@create",
+    "uri": "admin/categories/create",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "categories.store": {
+    "name": "categories.store",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@store",
+    "uri": "admin/categories",
+    "method": [
+      "POST"
+    ]
+  },
+  "categories.edit": {
+    "name": "categories.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@edit",
+    "uri": "admin/categories/{category}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "categories.update": {
+    "name": "categories.update",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@update",
+    "uri": "admin/categories/{category}",
+    "method": [
+      "PUT",
+      "PATCH"
+    ]
+  },
+  "categories.destroy": {
+    "name": "categories.destroy",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminCategoriesController@destroy",
+    "uri": "admin/categories/{category}",
+    "method": [
+      "DELETE"
+    ]
+  },
+  "users.index": {
+    "name": "users.index",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@index",
+    "uri": "admin/users",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "users.create": {
+    "name": "users.create",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@create",
+    "uri": "admin/users/create",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "users.store": {
+    "name": "users.store",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@store",
+    "uri": "admin/users",
+    "method": [
+      "POST"
+    ]
+  },
+  "users.edit": {
+    "name": "users.edit",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@edit",
+    "uri": "admin/users/{user}/edit",
+    "method": [
+      "GET",
+      "HEAD"
+    ]
+  },
+  "users.update": {
+    "name": "users.update",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@update",
+    "uri": "admin/users/{user}",
+    "method": [
+      "PUT",
+      "PATCH"
+    ]
+  },
+  "users.destroy": {
+    "name": "users.destroy",
+    "domain": null,
+    "action": "App\\Http\\Controllers\\AdminUsersController@destroy",
+    "uri": "admin/users/{user}",
+    "method": [
+      "DELETE"
+    ]
+  }
+}

@@ -1,11 +1,19 @@
-import { defineConfig } from 'cypress'
+const { defineConfig } = require("cypress");
 
-export default defineConfig({
-  e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.cjs')(on, config)
+module.exports = defineConfig({
+    chromeWebSecurity: false,
+    retries: 2,
+    defaultCommandTimeout: 5000,
+    watchForFileChanges: true,
+    videosFolder: "tests/cypress/videos",
+    screenshotsFolder: "tests/cypress/screenshots",
+    fixturesFolder: "tests/cypress/fixture",
+    e2e: {
+        setupNodeEvents(on, config) {
+            return require("./tests/cypress/plugins/index.js")(on, config);
+        },
+        baseUrl: "http://127.0.0.1:8000",
+        specPattern: "tests/cypress/integration/**/*.cy.{js,jsx,ts,tsx}",
+        supportFile: "tests/cypress/support/index.js",
     },
-  },
-})
+});
