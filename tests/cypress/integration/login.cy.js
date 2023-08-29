@@ -10,5 +10,8 @@ describe("Login test", () => {
         cy.get("form").contains("Log In").click();
 
         // 'Welcome Back!'
+        cy.on("window:alert", (str) => {
+            expect(str).to.equal("Welcome Back!");
+        });
     });
 });
