@@ -9,9 +9,7 @@ describe("Login test", () => {
         cy.get(":nth-child(4) > #password").type("password");
         cy.get("form").contains("Log In").click();
 
-        // 'Welcome Back!'
-        cy.on("window:alert", (str) => {
-            expect(str).to.equal("Welcome Back!");
-        });
+        // check if success message is running after login
+        cy.contains("Welcome Back!");
     });
 });
